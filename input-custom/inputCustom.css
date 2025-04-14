@@ -1,0 +1,84 @@
+.input-container {
+    position: relative;
+    /* background-color: blue; */
+    padding: 1.2rem 1rem .55rem 1rem;
+    border-radius: .8rem;
+    border: 1px solid var(--color-gray);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .8rem;
+    > p {
+        position: absolute;
+        left: .5rem;
+        bottom: -1rem;
+        font-size: .7rem;
+        color: var(--color-red-dark);
+        display: none;
+        opacity: 0;
+        transition: opacity .5s ease;
+    }
+    &:hover {
+        outline: 1px solid var(--color-black-blue);
+    }
+
+    &:has(input:focus) {
+        outline: 1px solid var(--color-black-blue);
+    }
+
+    .input-custom {
+        border: none;
+        /* background-color: aquamarine; */
+        padding-bottom: .6rem;
+        transition: all .3s ease;
+
+        &:focus {
+            outline: none;
+            padding-bottom: 0;
+            padding-top: .6rem;
+
+            +span {                
+                top: .5rem;
+                font-size: .7rem;
+                opacity: 1;                
+            }            
+        }
+        &:has(+ .writing) {
+            padding-bottom: 0;
+            padding-top: .6rem;
+        }        
+        
+    }
+
+    >span {
+        position: absolute;
+        top: 1.2rem;
+        left: 1rem;
+        transition: all .3s ease;
+        pointer-events: none;
+        color: var(--color-gray);
+        opacity: .6;
+        &.writing {
+            top: .5rem;
+            font-size: .7rem;
+            opacity: 1;
+        }
+    }
+}
+
+.border-error {
+    border: 1px solid var(--color-red);
+    outline: 1px solid var(--color-red);
+    &:hover {
+        outline: 1px solid var(--color-red);
+    }
+    &:has(input:focus) {
+        outline: 1px solid var(--color-red);
+    }
+    > span {
+        color: var(--color-red);
+    }
+    > p {
+        display: block;
+        opacity: 1;
+    }
+}

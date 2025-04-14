@@ -1,0 +1,113 @@
+main.login-page {
+    --color-gray-dark-stronge:#545e64;
+    --color-gray:#5c7a89;
+    --color-white:#fff;
+    --color-cyan:#3dd2ba;
+    --color-cyan-light:#64dbc8;
+    --color-green-blue:#038673;
+    --color-black-blue:#29363d;
+    background-color: var(--color-gray-dark-stronge);
+    min-height: 100dvh;
+    display: flex;    
+    > div {
+        /* display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; */ 
+        min-width: 300px;   
+        max-width: 420px; 
+        margin: 0 auto;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        gap: 1rem;       
+        > div.frm-container {
+            background-color: var(--color-white);
+            padding: 1rem 1.3rem;
+            min-height: 300px;
+            border-radius: 1.3rem;
+            font-family: 'Poppins',sans-serif;
+            > div.ico-container {
+                position: relative;
+                min-height: 40px;                
+                > button {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: .15rem .25rem;
+                    border: none;
+                    background-color: var(--color-white);
+                    > div.ico-close {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 1.5rem;
+                        transition: all .3s ease;
+                        cursor: pointer;
+                        &:hover {
+                            color: var(--color-gray);
+                        }
+                    }
+                }
+            }
+            > h2 {
+                padding-bottom: 2rem;
+            }
+            > form {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                > div {
+                    display: flex;
+                    > input {
+                        flex: 1;
+                        /* padding: 1.2rem 1rem;
+                        border-radius: .8rem;
+                        border: 1px solid var(--color-gray); */
+                    }
+                    &:has(button){
+                        /* background-color: blueviolet; */
+                        display: flex;
+                        justify-content: center;
+                        > button {
+                            background-color: var(--color-cyan);
+                            border: none;
+                            padding: 1rem 4rem;
+                            border-radius: 3rem;
+                            font-weight: 600;
+                            letter-spacing: .2px;
+                            color: var(--color-black-blue); 
+                            font-size: .9rem;
+                        }
+                    }
+                    &:has(a){
+                        /* background-color: blue; */
+                        display: flex;
+                        justify-content: center;
+                        > a {
+                            color: var(--color-green-blue);
+                            font-weight: 500;
+                            font-size: .9rem;
+                        }
+                    }
+                }
+            }
+        }
+        > div:nth-child(2) {
+            > p {
+                color: var(--color-white);
+                font-size: .75rem;
+                text-align: center;
+                > a {
+                    color: inherit;
+                    text-decoration: underline;
+                    transition: all .3s ease;
+                    &:hover {
+                        color: var(--color-gray);
+                    }
+                }
+            }
+        }
+    }
+}

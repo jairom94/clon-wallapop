@@ -1,0 +1,53 @@
+:root {
+    --primary-color: #3D3D3D;
+    --secondary-color: #727D73;
+    --warning-color: #EBE5C2;
+    --burger-color: #266c31;
+    --danger-color: #3AA6B9;
+    --light-color: #DCE4C9;
+    --font-color: #B7B7B7;
+    --menu-color: #257180;
+    --bg-skills: #e8e8e8;
+    --dark-color: #2C3930;
+    --note-color: #3F4F44;
+
+    --color-red:#FA7070;
+    --color-red-dark:#B80000;
+    font-family: "Ubuntu", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,figure {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.bg-hero-1 {
+    background-color: #e9ffb4;
+}
+
+.bg-hero-2 {
+    background-color: #85ffd3;
+}
+
+.bg-hero-3 {
+    background-color: #385ef9;
+}

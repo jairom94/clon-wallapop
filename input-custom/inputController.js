@@ -1,4 +1,4 @@
-export function inputController($inputContainer,type='text',placeholder,errorMessage='El campo es obligatorio.') {
+export function inputController($inputContainer,ID,type='text',placeholder,funValidation,errorMessage='El campo es obligatorio.') {
     // const $inputContainer = document.querySelector('.input-container');
     const $input = document.createElement('input');
     const $error = document.createElement('p');
@@ -8,7 +8,9 @@ export function inputController($inputContainer,type='text',placeholder,errorMes
         
         $input.type = type;
         $input.placeholder= ' ';
-        $input.className = 'input-custom'
+        $input.className = 'input-custom';
+        $input.id = ID;
+        $input.autocomplete = 'off';
         $inputContainer.appendChild($input);
         const $placeholder = document.createElement('span')
         $placeholder.className = 'placeholder';
@@ -23,6 +25,7 @@ export function inputController($inputContainer,type='text',placeholder,errorMes
             const $placeholder = $inputContainer.querySelector('.placeholder')            
             $placeholder.classList.add('writing')
             $inputContainer.classList.remove('border-error')
+            valueInput = e.target.value;
         }else{
             const $placeholder = $inputContainer.querySelector('.placeholder')            
             $placeholder.classList.remove('writing')
@@ -31,7 +34,7 @@ export function inputController($inputContainer,type='text',placeholder,errorMes
         
     })
     $input.addEventListener('blur',(e)=>{
-        if ($input.value === '') {
+        if (funValidation($input.value)) {
             $inputContainer.classList.add('border-error')
         }else {
             $inputContainer.classList.remove('border-error')

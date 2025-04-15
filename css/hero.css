@@ -24,7 +24,7 @@ section.hero {
             align-items: center;
             gap: 1rem;
             padding: 0 1rem;
-            max-width: 50dvw;
+            /* max-width: 50dvw; */
             transition: all 1s ease-out;
             /* opacity: 1; */
             /* transform: translateX(100%); */
@@ -125,6 +125,14 @@ section.hero {
             /* flex-grow: 1;
             flex-basis: 0; */
             flex: 1;
+            > div.title{
+                flex-shrink: 0;
+                max-width: 40dvw;                
+            }
+            > figure {
+                /* display: none; */
+                flex: 1;
+            }
         }
     }
 

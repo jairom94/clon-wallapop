@@ -62,9 +62,7 @@ main.login-page {
                     display: flex;
                     > input {
                         flex: 1;
-                        /* padding: 1.2rem 1rem;
-                        border-radius: .8rem;
-                        border: 1px solid var(--color-gray); */
+                        /* background-color: #038673;                         */
                     }
                     &:has(button){
                         /* background-color: blueviolet; */
@@ -79,6 +77,12 @@ main.login-page {
                             letter-spacing: .2px;
                             color: var(--color-black-blue); 
                             font-size: .9rem;
+                            transition: all .3s ease;
+                            cursor: pointer;
+                            &:hover {
+                                color: var(--color-gray-dark-stronge);
+                                background-color: var(--color-cyan-light);
+                            }
                         }
                     }
                     &:has(a){
@@ -89,6 +93,10 @@ main.login-page {
                             color: var(--color-green-blue);
                             font-weight: 500;
                             font-size: .9rem;
+                            transition: all .3s ease;
+                            &:hover{
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }
@@ -104,7 +112,7 @@ main.login-page {
                     text-decoration: underline;
                     transition: all .3s ease;
                     &:hover {
-                        color: var(--color-gray);
+                        color: var(--color-black-blue);
                     }
                 }
             }

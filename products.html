@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Asap:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="./notification/notifications.css">
+    <link rel="stylesheet" href="./loader/loader.css">
+    <link rel="stylesheet" href="css/products.css">
+    
+    <title>Products</title>
+</head>
+<body>
+    <ul class="notification-container"></ul>
+    <dialog class="cont-loader"></dialog>
+    <div class="container" id="page">
+        <header class="header-main">
+            <div class="line-1">
+                <div class="logo">
+                    <img src="./imgs/logo.svg" alt="logo wallapop">
+                </div>
+                <div class="frm-search">
+                    <input class="txt_search" type="text" name="search" id="search" placeholder="Busca vinilos">
+                    <div class="ico-search">
+                        <iconify-icon icon="octicon:search-16"></iconify-icon>
+                    </div>
+                    <div class="placeholder">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="line-2">
+                <ul class="menu-horizontal">
+                    <li>
+                        <div class="ico-burger">
+                            <iconify-icon icon="tabler:menu-2"></iconify-icon>
+                        </div>
+                        <span>
+                            Todas las categorías
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            Motor y Accesorios
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            Moda y accesorios
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-vertical">
+                <div class="cont-button-close">
+                    <button>
+                        <div class="ico-close">
+                            <iconify-icon icon="ic:baseline-close"></iconify-icon>
+                        </div>
+                    </button>
+                </div>
+                <p>Todas las categorías</p>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="ico">
+                                    <iconify-icon icon="material-symbols:border-all-rounded"></iconify-icon>
+                                </div>
+                                <span>
+                                    Ver todo
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="ico">
+                                    <iconify-icon icon="material-symbols:directions-car-outline-sharp"></iconify-icon>
+                                </div>
+                                <span>
+                                    Coche
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="ico">
+                                    <iconify-icon icon="material-symbols:motorcycle-rounded"></iconify-icon>
+                                </div>
+                                <span>
+                                    Motos
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="ico">
+                                    <iconify-icon icon="material-symbols:warehouse-outline-rounded"></iconify-icon>
+                                </div>
+                                <span>
+                                    Inmobiliaria
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="products-page">
+            <section class="filter">
+    
+            </section>
+            <section class="products">
+                <ul class="products-list">
+                    <li class="loading">
+                        <!-- <a href="#">
+                            <figure>
+                                <img src="./imgs/products/placeholder_image.png" alt="placeholder">                                
+                                <span>Venta</span>
+                            </figure>
+                            <div class="detail">
+                                <p class="price">10.30 EUR</p>
+                                <h2 class="name">Deposito de aceite</h2>
+                                <div class="delivery-type">
+                                    <div class="ico-delivery">
+                                        <iconify-icon icon="ic:round-fire-truck"></iconify-icon>
+                                    </div>
+                                    <span>Envio Disponible</span>
+                                </div>
+                                <p class="detail-product">
+                                    Se vende buena batería de coche 70Ah 12V 760A esta en perfecto estado funciona genial
+                                </p>
+                                <div class="rating-cont">
+                                    <h3>Vendido por:</h3>
+                                    <div>
+                                        <span class="owner">Layla</span>
+                                        <span class="star">
+                                            <div class="ico-star">
+                                                <iconify-icon icon="ic:round-star"></iconify-icon>
+                                            </div>
+                                            <span class="rating">5(20)</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a> -->
+                    </li>
+                    <li class="loading"></li>
+                    <li class="loading"></li>
+                    <li class="loading"></li>                    
+                </ul>
+            </section>
+        </main>
+        <footer class="footer-page">        
+        </footer>
+    </div>
+    <script type="module" src="./products.js"></script>
+</body>
+</html>

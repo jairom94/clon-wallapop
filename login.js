@@ -2,7 +2,7 @@ import { inputController } from "./input-custom/inputController.js";
 import { loaderController } from "./loader/loaderController.js";
 import { loginController } from "./login/loginController.js";
 import { notificationController } from "./notification/notificationController.js";
-import { REGEXP } from "./utils/constants.js"
+import { REGEXP } from "./utils/constants.js";
 
 document.addEventListener('DOMContentLoaded',()=>{
     const $formLogin = document.querySelector('.form-login')
@@ -24,11 +24,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     }); 
     inputPassword.showInput();   
 
+    //Events Login
     const notification1 = notificationController();
     $formLogin.addEventListener('login-error',(e)=>{
         notification1.show(e.detail,'error')
     })
-    const { show,hide } = loaderController();
+
+    //Events loading
+    const $contLoader = document.querySelector('.cont-loader');
+    const { show,hide } = loaderController($contLoader);
     $formLogin.addEventListener('login-load-start',(e)=>{
         show();
     })
@@ -36,14 +40,5 @@ document.addEventListener('DOMContentLoaded',()=>{
         hide();
     })
     loginController();
-
-    // const { show,hide } = loaderController();
-    // show()
-    // setTimeout(() => {
-    //     hide()
-    // }, 30000);
-    
-    // notification1.show('Hola mundo soy una notificacion con un texto algo extenso','info');    
-    
     
 })

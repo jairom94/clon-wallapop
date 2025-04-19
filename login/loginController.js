@@ -44,7 +44,7 @@ export const loginController = () => {
             localStorage.setItem('token', token);
             const event = new CustomEvent('login-ok', {
                 detail: {
-                    message: 'Se ha logeado con exito',
+                    message: 'login success',
                     type:'success'
                 }
             });

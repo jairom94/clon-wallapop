@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,20 +15,17 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="./input-custom/inputCustom.css">
     <link rel="stylesheet" href="./notification/notifications.css">
     <link rel="stylesheet" href="./loader/loader.css">
     
-
-
-    <title>Login</title>
+    <title>Register</title>
 </head>
-
 <body>
     <ul class="notification-container"></ul>
     <dialog class="cont-loader"></dialog>
-    <main class="login-page">
+    <main class="register-page">
         <div>
             <div class="frm-container">
                 <div class="ico-container">
@@ -39,18 +35,34 @@
                         </div>
                     </button>
                 </div>
-                <h2>¡Te damos la bienvenida!</h2>
-                <form class="form-login">
+                <h2>Únete a Wallapop</h2>
+                <form class="form-register">
+                    <div class="input-container name">
+                    </div>
                     <div class="input-container email">
                     </div>
                     <div class="input-container password">
                     </div>                    
-                    <div>
-                        <a href="#">¿Has olvidado tu contraseña?</a>
+                    <div class="communications">
+                        <input type="checkbox" name="communications_check" id="communications_check">
+                        <label for="communications_check">
+                            Quiero recibir comunicaciones sobre promociones y novedades de Wallapop.
+                        </label>
+                    </div>
+                    <div class="terms">
+                        <input type="checkbox" name="terms_check" id="terms_check">
+                        <label for="terms_check">
+                            He leído y acepto las <a href="#">Condiciones de uso</a> y <a href="#">Política de privacidad</a> de Wallapop.
+                        </label>
+                    </div>
+                    <div class="information">
+                        <p>
+                            Ver <a href="#">+info</a> sobre protección de datos
+                        </p>
                     </div>
                     <div>
                         <button type="submit">
-                            Acceder a Wallapop
+                            Crear una cuenta
                         </button>
                     </div>
                 </form>
@@ -64,7 +76,6 @@
             </div>
         </div>
     </main>
-    <script type="module" src="./login.js"></script>
+    <script type="module" src="./register.js"></script>
 </body>
-
 </html>

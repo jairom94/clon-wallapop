@@ -50,6 +50,13 @@ export function inputController($inputContainer,ID,type='text',placeholder,funVa
         },
         getValueInput(){
             return valueInput;
+        },
+        validateInput(){
+            if (funValidation($input.value)) {
+                $inputContainer.classList.add('border-error')
+            }else {
+                $inputContainer.classList.remove('border-error')
+            }
         }
     }
 }

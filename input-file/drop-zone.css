@@ -1,0 +1,69 @@
+/* Paso 2: Estilos básicos para el área de drop */
+.drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.drop-zone.dragover {
+    border-color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+#fileInput {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.drop-message {
+    color: #666;
+}
+
+/* Paso 2: Agregar estilos para las previsualizaciones */
+.preview-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.preview-image {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.image-container {
+    position: relative;
+    margin: 10px;
+    > .remove-btn {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: red;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        &:hover {
+            background-color: var(--color-red);
+        }
+    }
+}

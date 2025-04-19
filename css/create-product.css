@@ -1,0 +1,23 @@
+div#page {
+    >main.add-product-page {
+        flex: 1 0 100%;
+        /* background-color: salmon; */
+        display: flex;
+        flex-direction: column;
+
+        >div {
+            flex: 1;
+            max-width: 70dvw;
+            margin: 0 auto;
+            /* background-color: yellowgreen;             */
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    >footer.footer-page {
+        height: 100px;
+        background-color: darkmagenta;
+    }
+}
+

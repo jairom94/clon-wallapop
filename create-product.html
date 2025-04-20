@@ -66,7 +66,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="menu-vertical">
+            <!-- <div class="menu-vertical">
                 <div class="cont-button-close">
                     <button>
                         <div class="ico-close">
@@ -119,9 +119,9 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> -->
         </header>
-        <main class="add-product-page">
+        <main class="page add-product-page">
             <div>
                 <div class="form-container">
                     <form class="form-create-product">
@@ -161,19 +161,22 @@
                                 </li>
                             </ul>
                         </fieldset>
-                        <div>
+                        <div class="dropdown-cont">
+                            <div class="ico">
+                                <iconify-icon icon="mdi:arrow-down-bold-box"></iconify-icon>
+                            </div>
                             <select name="category" id="category">
                                 <option value="0">--Select category--</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="btn-submit">
                             <button type="submit">Crear Producto</button>
                         </div>
                     </form>
                 </div>
             </div>
         </main>
-        <footer class="footer-page">
+        <footer>
         </footer>
     </div>
     <script type="module" src="./create-product.js"></script>

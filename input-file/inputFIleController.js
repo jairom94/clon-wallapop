@@ -1,63 +1,71 @@
-import { clearImages, dropMessage, inputFileView } from "./inputFileView.js";
+import { clearImages, dropMessage, errorMessage, inputFileView } from "./inputFileView.js";
 
-export function inputFileController() {
-    const $dropZone = document.querySelector('.drop-zone');
+export function inputFileController($dropZone,idInputFile,name) {
+    // const $dropZone = document.querySelector('.drop-zone');
     const formatFiles = ['image/png', 'image/jpeg'];
     const $previewImages = document.querySelector('.preview-container')
-    let objectURLs = []; 
+    const $errorMessage = errorMessage('Formato incorrecto.')
+    let objectURLs = [];
 
-    const $inputFile = buildUIDragDrop($dropZone,formatFiles);
+    const $inputFile = buildInputFile($dropZone,idInputFile,name, formatFiles);
     buildEnviromentDragAndDrop($dropZone);
 
-    
+
 
     $dropZone.addEventListener('drop', function handleDrop(e) {
         const dt = e.dataTransfer;
         const files = dt.files;
 
         // Validar tipos de archivo
-        const validFiles = validateFiles(files,formatFiles)
+        const validFiles = validateFiles(files, formatFiles)
 
         if (validFiles.length > 0) {
+            $dropZone.classList.remove('error-format');
+            $errorMessage.remove();
             // Crear un nuevo DataTransfer para asignar los archivos válidos
             const dataTransfer = new DataTransfer();
             validFiles.forEach(file => dataTransfer.items.add(file));
 
-            clearPreviews(objectURLs,$previewImages)
-            displayPreviews(validFiles,$inputFile,objectURLs)
+            clearPreviews(objectURLs, $previewImages)
+            displayPreviews(validFiles, $inputFile, objectURLs)
             // Asignar los archivos al input
             $inputFile.files = dataTransfer.files;
 
-            // Opcional: Disparar evento change para manejar la subida
+            // Disparar evento change para manejar la subida
             const event = new Event('change');
             $inputFile.dispatchEvent(event);
-        } else {
-            alert('Solo se permiten archivos PNG y JPEG');
-            // throw new Error('Solo se permiten archivos PNG y JPEG');
+        } else {            
+            $dropZone.classList.add('error-format')
+            $dropZone.appendChild($errorMessage)
         }
 
 
     }, false);
 
-    // console.log($inputFile);
-    
-    $inputFile.addEventListener('change',function (e){
-        const validFiles = validateFiles(this.files,formatFiles);
-        console.log(validFiles);
-        
-        // Actualizar archivos válidos en el input
-        const dataTransfer = new DataTransfer();
-        validFiles.forEach(file => dataTransfer.items.add(file));
-        this.files = dataTransfer.files;
-        
-        clearPreviews(objectURLs,$previewImages)
-        displayPreviews(validFiles,$inputFile,objectURLs)
-        // console.log('se ha cambiado los archivos');
-        
+
+    $inputFile.addEventListener('change', function (e) {
+        const validFiles = validateFiles(this.files, formatFiles);
+
+        if (validFiles.length > 0) {
+            $dropZone.classList.remove('error-format');
+            $errorMessage.remove();
+            // Actualizar archivos válidos en el input
+            const dataTransfer = new DataTransfer();
+            validFiles.forEach(file => dataTransfer.items.add(file));
+            this.files = dataTransfer.files;
+
+            clearPreviews(objectURLs, $previewImages)
+            displayPreviews(validFiles, $inputFile, objectURLs)
+        }else {
+            $dropZone.classList.add('error-format')
+            $dropZone.appendChild($errorMessage)
+        }
+
+
     })
 
     return {
-        inputFile(){
+        inputFile() {
             return $inputFile
         }
     }
@@ -91,10 +99,11 @@ function buildEnviromentDragAndDrop($dropZone) {
     }
 }
 
-function buildUIDragDrop($dropZone, formatFiles){
+function buildInputFile($dropZone, idInputFile,name, formatFiles) {
     const $inputFile = inputFileView({
-        id: 'fileInput',
-        format: formatFiles.join(', ')
+        id: idInputFile,
+        format: formatFiles.join(', '),
+        name
     });
 
     $dropZone.appendChild($inputFile)
@@ -102,38 +111,38 @@ function buildUIDragDrop($dropZone, formatFiles){
     return $inputFile;
 }
 
-function clearPreviews(objectURLs,$previewImages) {
+function clearPreviews(objectURLs, $previewImages) {
     // Liberar memoria de las URLs
     objectURLs.forEach(url => URL.revokeObjectURL(url));
     objectURLs = [];
-    
+
     clearImages($previewImages);
 }
 
-function removePreview(index_,$previewImages, fileInput, objectURLs) {
+function removePreview(index_, $previewImages, fileInput, objectURLs) {
     // Eliminar archivo del input
     const dataTransfer = new DataTransfer();
     let files = Array.from(fileInput.files);
     // files.splice(index, 1);
-    files = files.filter((file,index) => index !== index_)
+    files = files.filter((file, index) => index !== index_)
     console.log(files);
-    
+
     files.forEach(file => dataTransfer.items.add(file));
     fileInput.files = dataTransfer.files;
-    
+
     // Volver a generar previsualizaciones
-    clearPreviews(objectURLs,$previewImages);
-    displayPreviews(files,fileInput,objectURLs)
+    clearPreviews(objectURLs, $previewImages);
+    displayPreviews(files, fileInput, objectURLs)
 }
 
-function validateFiles(files,formatFiles) {
+function validateFiles(files, formatFiles) {
     return Array.from(files).filter(file =>
         formatFiles.includes(file.type)
     );
 
 }
 
-function displayPreviews(files,$inputFile,objectURLs) {
+function displayPreviews(files, $inputFile, objectURLs) {
     const $previewImages = document.querySelector('.preview-container')
     files.forEach((file, index) => {
         const $containerImages = document.createElement('div')
@@ -150,9 +159,9 @@ function displayPreviews(files,$inputFile,objectURLs) {
         objectURLs.push(objectUrl)
         $imgPreview.src = objectUrl
 
-        removeBtn.addEventListener('click',(e)=>{
+        removeBtn.addEventListener('click', (e) => {
             e.preventDefault()
-            removePreview(index,$previewImages,$inputFile,objectURLs)
+            removePreview(index, $previewImages, $inputFile, objectURLs)
         })
 
         $containerImages.appendChild($imgPreview);

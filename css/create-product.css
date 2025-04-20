@@ -1,23 +1,242 @@
-div#page {
+div#page {    
     >main.add-product-page {
-        flex: 1 0 100%;
+        flex: 1;
+        /* align-items: stretch; */
         /* background-color: salmon; */
         display: flex;
         flex-direction: column;
-
+        /* display: none; */
+        padding-top: 3rem;
         >div {
-            flex: 1;
-            max-width: 70dvw;
+            width: 100%;
+            /* align-items: stretch; */
+            max-width: 90dvw;
             margin: 0 auto;
-            /* background-color: yellowgreen;             */
-            display: flex;
+            flex: 1;            
             align-items: center;
+
+            >div.form-container {
+                /* display: none; */
+                /* background-color: yellowgreen; */
+                background: linear-gradient(var(--color-white), var(--color-white)) padding-box,
+                    linear-gradient(-100deg, transparent 30%, var(--color-green-blue), var(--color-green-blue)) border-box;
+                border: 2px solid transparent;
+                padding: 2rem 1.5rem;
+                border-radius: .5rem;
+                /* box-shadow: .3rem .25rem 10px var(--color-black-blue); */
+                > form {                    
+                    font-family: sans-serif;
+                    display: flex;
+                    flex-direction: column;
+                    gap: .9rem;
+                    > div {
+                        /* background-color: yellowgreen; */
+                        display: flex;
+                        flex-direction: column;
+                        gap: .3rem;
+                        /* transition: all .3s ease; */
+                        &:has(input:focus){
+                            transition: all .3s ease;
+                            > label {
+                                color: var(--color-green-blue);
+                                /* font-weight: 700; */
+                            }
+                        }
+                        > label {
+                            color: var(--color-gray);
+                            
+                        }
+                        > input[type="text"],input[type="number"] {
+                            border-radius: .5rem;
+                            padding: .6rem 1rem;
+                            outline: none;
+                            border: 1px solid var(--color-gray);
+                            transition: all .3s ease;
+                            &:focus{
+                                border-color: var(--color-green-blue);
+                                /* outline:1px solid var(--color-green-blue); */
+                            }
+                        }
+                        >input[type="number"] {
+                            appearance: textfield;
+                        }
+            
+                        >input[type="number"]::-webkit-outer-spin-button,
+                        >input[type="number"]::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+                    }
+                    > fieldset {
+                        /* background-color: yellowgreen; */
+                        border-radius: .5rem;
+                        border-color: var(--color-gray);
+                        border-width: 1px;
+                        color: var(--color-gray);
+                        transition: all .3s ease;
+                        &:has(textarea) {                            
+                            display: flex;
+                            padding: 1rem;
+                            &:has(textarea:focus){
+                                color: var(--color-green-blue);
+                                border-color: var(--color-green-blue);
+                            }
+                            > textarea { 
+                                border-color: var(--color-gray);                           
+                                border-radius: .3rem;
+                                resize: none;
+                                height: 5rem;                            
+                                flex: 1;
+                                padding: 1rem;
+                                transition: all .3s ease;
+
+                                &:focus{
+                                    border-color: var(--color-green-blue);
+                                    outline: none;
+                                    /* outline:1px solid var(--color-green-blue); */
+                                }
+                            }
+                        }
+                        &:has(>ul>li>input:focus){
+                            color: var(--color-green-blue);
+                            border-color: var(--color-green-blue);
+                        }
+                        > ul {
+                            display: flex;
+                            flex-direction: column;
+                            gap: .5rem;
+                            > li {
+                                display: flex;
+                                position: relative;  
+                                &:has(input:focus){
+                                    > label {
+                                        color: var(--color-green-blue);
+                                    }
+                                }                              
+                                >label {                                    
+                                    width: 160px;
+                                    color: var(--color-gray);
+                                    cursor: pointer;
+                                }
+                    
+                                >input[type="radio"] {
+                                    opacity: 0;                                    
+                                    cursor: pointer;
+                                    position: absolute;
+                                    display: block;
+                                    left: 160px;
+                                    width: 20px;
+                                    height: 20px;
+                                    top: 0;
+                                    z-index: 10;
+                    
+                                    ~span {
+                                        display: flex;
+                                        width: 20px;
+                                        height: 20px;
+                                        border: 1px solid var(--color-green-blue);
+                                        position: relative;
+                                        border-radius: 3px;
+                                        justify-content: center;
+                                        z-index: 5;
+                    
+                                        &::before {
+                                            content: "✓";
+                                            position: absolute;
+                                            left: 0;
+                                            top: 0;
+                                            opacity: 0;
+                                            font-size: 0;
+                                            transition: all .4s ease;
+                                            z-index: 6;
+                                        }
+                                    }
+                    
+                                    &:checked {
+                    
+                                        /* opacity: 1; */
+                                        ~span {
+                                            &::before {
+                                                opacity: 1;
+                                                font-size: 2rem;
+                                                top: -10px;
+                                                color: var(--light-color);
+                                                padding-bottom: 10px;
+                                            }
+                                        }
+                                    }
+                    
+                                }
+                    
+                            }
+                        }
+                        &:has(div.drop-zone>input:focus){
+                            color: var(--color-green-blue);
+                            border-color: var(--color-green-blue);
+                        }
+                    }
+                    > div.dropdown-cont {
+                        position: relative;
+                        transition: all .3s ease;
+                        &:has(>select:focus){
+                            > div.ico {
+                                color: var(--color-green-blue);
+                            }
+                        }
+                        > div.ico {
+                            position: absolute;
+                            right: .25rem;
+                            top: .25rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 2rem;
+                            color: var(--color-gray);
+                        }
+                        > select {
+                            appearance: none;
+                            padding: .6rem;
+                            color: var(--color-gray);
+                            border-radius: .5rem;
+                            cursor: pointer;
+                            transition: all .3s ease;
+                            &:focus {
+                                color: var(--color-green-blue);
+                                outline: none;
+                                border-color: var(--color-green-blue);
+                            }
+                        }
+                    }
+                    > div.btn-submit {
+                        > button {
+                            padding: .5rem 1rem;
+                            border: none;
+                            background-color: var(--color-green-blue);
+                            color: var(--color-white);
+                            font-weight: 700;
+                            border-radius: .5rem;
+                            cursor: pointer;
+                            transition: all .3s ease;
+                            &:hover {
+                                background-color: var(--color-cyan);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
-    >footer.footer-page {
-        height: 100px;
-        background-color: darkmagenta;
-    }
+    
 }
 
+@media screen and (width >= 768px) {
+    div#page {    
+        >main.add-product-page {
+            > div {
+                max-width: 600px;
+            }
+        }
+    }
+    
+}

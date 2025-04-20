@@ -1,12 +1,21 @@
 :root {
+    --color-gray-dark-stronge:#545e64;
+    --color-gray:#5c7a89;
+    --color-white:#fff;
+    --color-cyan:#3dd2ba;
+    --color-cyan-light:#64dbc8;
+    --color-green-blue:#038673;
+    --color-black-blue:#29363d;
+
     --color-black-product:#212529;
     --color-black-product-name:#253238;
     --color-black-product-detail:#5c7a89;
-    --color-green-blue:#038673;
+    /* --color-green-blue:#038673; */
     --color-star:#ffbf47;
 
     --color-red:#FA7070;
     --color-red-dark:#B80000;
+    --color-white:#fff;
     
     font-size: 16px;
 }
@@ -50,4 +59,14 @@ div.container {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
+    /* max-width: 100dvw; */
+}
+
+.page {
+    padding-bottom: 2rem;
+}
+
+footer.footer-page {
+    height: 100px;
+    background-color: darkmagenta;
 }

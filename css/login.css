@@ -1,11 +1,11 @@
 main.login-page {
-    --color-gray-dark-stronge:#545e64;
+    /* --color-gray-dark-stronge:#545e64;
     --color-gray:#5c7a89;
     --color-white:#fff;
     --color-cyan:#3dd2ba;
     --color-cyan-light:#64dbc8;
     --color-green-blue:#038673;
-    --color-black-blue:#29363d;
+    --color-black-blue:#29363d; */
     background-color: var(--color-gray-dark-stronge);
     min-height: 100dvh;
     display: flex;    

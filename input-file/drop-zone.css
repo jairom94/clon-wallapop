@@ -1,11 +1,32 @@
-/* Paso 2: Estilos básicos para el área de drop */
-.drop-zone {
-    border: 2px dashed #ccc;
-    border-radius: 10px;
+.drop-zone {    
+    border: 2px dashed var(--color-gray);
+    border-radius: .5rem;
     padding: 2rem;
     text-align: center;
     position: relative;
     transition: border-color 0.3s ease;
+    margin-top: 1.3rem;
+    &.error-format {
+        border: 2px dashed var(--color-red);
+        > div {
+            color: var(--color-red);
+        }
+        > div.error-message {
+            position: absolute;
+            /* background-color: #4CAF50; */
+            top: -1.5rem;
+            left: 0;
+            font-weight: 700;
+        }
+    }
+    &:has(input:focus){
+        border-color: var(--color-green-blue);
+        > input {
+            + .drop-message{
+                color: var(--color-green-blue);
+            }
+        }
+    }
 }
 
 .drop-zone.dragover {
@@ -13,7 +34,7 @@
     background-color: rgba(76, 175, 80, 0.1);
 }
 
-#fileInput {
+.fileInput {
     opacity: 0;
     position: absolute;
     top: 0;
@@ -24,7 +45,7 @@
 }
 
 .drop-message {
-    color: #666;
+    color: var(--color-gray);
 }
 
 /* Paso 2: Agregar estilos para las previsualizaciones */
@@ -32,7 +53,7 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: 1.3rem;
 }
 
 .preview-image {

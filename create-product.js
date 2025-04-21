@@ -12,10 +12,17 @@ document.addEventListener('DOMContentLoaded',()=>{
     const $dropZone = document.querySelector('.drop-zone');
     inputFileController($dropZone,'images','images');
 
-    const {show} = notificationController();
-    $formCreateProduct.addEventListener('error-create-product',()=>{
-        show('El producto no ha sido creado','error');
+    const {show} = notificationController();    
+    $formCreateProduct.addEventListener('error-create-product',(e)=>{
+        const errors = e.detail;        
+        errors.forEach(field => {
+            const [[fieldName,detail]] = Object.entries(field)
+            const err = Object.entries(detail.errors)
+            err.forEach(([type,{message}])=>{
+                show(message,'error')
+            })
+        });
+        
     })
-    
     createProductController();
 });

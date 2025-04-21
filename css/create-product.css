@@ -67,6 +67,28 @@ div#page {
                             margin: 0;
                         }
                     }
+                    > div.price-content{
+                        position: relative;
+                        &:has(input:focus){
+                            > div.ico-price {
+                                color: var(--color-green-blue);
+                            }
+                        }
+                        > input {
+                            padding-left: 2.8rem;
+                        }
+                        > div.ico-price {
+                            position: absolute;
+                            left: .5rem;
+                            top: 1.65rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 2rem;
+                            color: var(--color-gray);
+                            transition: all .3s ease;
+                        }
+                    }
                     > fieldset {
                         /* background-color: yellowgreen; */
                         border-radius: .5rem;
@@ -76,7 +98,13 @@ div#page {
                         transition: all .3s ease;
                         &:has(textarea) {                            
                             display: flex;
+                            flex-direction: column-reverse;
+                            gap: .5rem;
                             padding: 1rem;
+                            > div.max-lenght-container {
+                                font-size: .8rem;
+                                font-weight: 100;
+                            }
                             &:has(textarea:focus){
                                 color: var(--color-green-blue);
                                 border-color: var(--color-green-blue);

@@ -34,6 +34,9 @@
                 <div class="logo">
                     <img src="./imgs/logo.svg" alt="logo wallapop">
                 </div>
+                <div class="logo-desktop">
+                    <img src="./imgs/logo-desktop.svg" alt="logo wallapop">
+                </div>
                 <div class="frm-search">
                     <input class="txt_search" type="text" name="search" id="search" placeholder="Busca vinilos">
                     <div class="ico-search">
@@ -41,6 +44,14 @@
                     </div>
                     <div class="placeholder">
 
+                    </div>
+                </div>
+                <div class="session">
+                    <div>
+                        <a class="btn-login" href="#">Regístrate o inicia sesión</a>
+                    </div>
+                    <div>
+                        <a class="btn-sell" href="#">Vender</a>
                     </div>
                 </div>
             </div>
@@ -129,9 +140,9 @@
                             <label for="title">Titulo</label>
                             <input type="text" name="title" id="title" autocomplete="off">
                         </div>
-                        <fieldset>
-                            <legend>Descripción</legend>
-                            <textarea name="description" id="description"></textarea>
+                        <fieldset class="description-container">
+                            <legend>Descripción</legend>                            
+                            <div class="max-lenght-container"></div>
                         </fieldset>
                         <fieldset>
                             <legend>Imagen</legend>
@@ -142,9 +153,15 @@
                             </div>
                             <div class="preview-container"></div>
                         </fieldset>
-                        <div>
+                        <div class="price-content">
                             <label for="price">Precio</label>
-                            <input type="number" name="price" id="price">
+                            <input type="number" name="price" id="price"
+                            placeholder="0.00"
+                            autocomplete="off"
+                            pattern="^\d+\.\d{2}$">
+                            <div class="ico-price">
+                                <iconify-icon icon="iconoir:euro-square-solid"></iconify-icon>
+                            </div>
                         </div>
                         <fieldset>
                             <legend>Tipo de anuncio</legend>
@@ -166,7 +183,7 @@
                                 <iconify-icon icon="mdi:arrow-down-bold-box"></iconify-icon>
                             </div>
                             <select name="category" id="category">
-                                <option value="0">--Select category--</option>
+                                <option value="">--Select category--</option>
                             </select>
                         </div>
                         <div class="btn-submit">

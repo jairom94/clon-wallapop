@@ -125,7 +125,7 @@ function removePreview(index_, $previewImages, fileInput, objectURLs) {
     let files = Array.from(fileInput.files);
     // files.splice(index, 1);
     files = files.filter((file, index) => index !== index_)
-    console.log(files);
+    // console.log(files);
 
     files.forEach(file => dataTransfer.items.add(file));
     fileInput.files = dataTransfer.files;
@@ -154,6 +154,7 @@ function displayPreviews(files, $inputFile, objectURLs) {
         const removeBtn = document.createElement('button');
         removeBtn.className = 'remove-btn';
         removeBtn.innerHTML = '×';
+        removeBtn.type = 'button'
 
         const objectUrl = URL.createObjectURL(file);
         objectURLs.push(objectUrl)

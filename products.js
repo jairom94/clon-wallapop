@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     const $producstContainer = document.querySelector('.products-list');
     const notifications = notificationController();
     $producstContainer.addEventListener('load-products-start',(e)=>{
-        notifications.show('loading...','info');
+        notifications.show('loading...','warning');
     })
     $producstContainer.addEventListener('error-load-products',(e)=>{
         notifications.show(e.detail,'error');
     })
     $producstContainer.addEventListener('load-products-finished',(e)=>{
-        notifications.show('Carga finalizada','info');
+        notifications.show('Carga finalizada','success');
     })
     productsController();
 });

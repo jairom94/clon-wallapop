@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +17,13 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="./notification/notifications.css">
-    <link rel="stylesheet" href="./loader/loader.css">
-    <link rel="stylesheet" href="css/products.css">
-    
-    <title>Products</title>
+    <link rel="stylesheet" href="./notification/notifications.css">    
+    <link rel="stylesheet" href="css/product-detail.css">
+    <title>Product</title>
 </head>
+
 <body>
-    <ul class="notification-container"></ul>
-    <dialog class="cont-loader"></dialog>
+    <ul class="notification-container"></ul>    
     <div class="container" id="page">
         <header class="header-main">
             <div class="line-1">
@@ -129,54 +128,110 @@
                 </nav>
             </div> -->
         </header>
-        <main class="page products-page">
-            <section class="filter">
-    
-            </section>
-            <section class="products">
-                <ul class="products-list">
-                    <li class="loading">
-                        <!-- <a href="#">
-                            <figure>
-                                <img src="./imgs/products/placeholder_image.png" alt="placeholder">                                
-                                <span>Venta</span>
-                            </figure>
-                            <div class="detail">
-                                <p class="price">10.30 EUR</p>
-                                <h2 class="name">Deposito de aceite</h2>
-                                <div class="delivery-type">
-                                    <div class="ico-delivery">
-                                        <iconify-icon icon="ic:round-fire-truck"></iconify-icon>
-                                    </div>
-                                    <span>Envio Disponible</span>
-                                </div>
-                                <p class="detail-product">
-                                    Se vende buena batería de coche 70Ah 12V 760A esta en perfecto estado funciona genial
-                                </p>
-                                <div class="rating-cont">
-                                    <h3>Vendido por:</h3>
-                                    <div>
-                                        <span class="owner">Layla</span>
-                                        <span class="star">
-                                            <div class="ico-star">
-                                                <iconify-icon icon="ic:round-star"></iconify-icon>
-                                            </div>
-                                            <span class="rating">5(20)</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a> -->
-                    </li>
-                    <li class="loading"></li>
-                    <li class="loading"></li>
-                    <li class="loading"></li>                    
-                </ul>
+        <main class="page product-detail-page">
+            <section class="product-container">
+                <div class="product">
+
+                </div>
             </section>
         </main>
-        <footer>        
+        <footer class="footer-main">
+            <div>
+                <section class="rights">
+                    <figure>
+                        <img src="./imgs/logo-desktop.svg" alt="logo wallapop">
+                    </figure>
+                    <p>
+                        © 2013-2025 Wallapop. Todos los derechos reservados
+                    </p>
+                </section>
+                <section class="information nav">
+                    <h3>Wallapop</h3>
+                    <ul>
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Como funciona</a></li>
+                        <li><a href="#">Brand Book</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Empleo</a></li>
+                        <li><a href="#">Sostenibilidad</a></li>
+                    </ul>
+                </section>
+                <section class="support nav">
+                    <h3>Soporte</h3>
+                    <ul>
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Normas de la comunidad</a></li>
+                        <li><a href="#">Consejos de seguridad</a></li>
+                    </ul>
+                </section>
+                <section class="social">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="social-icon">
+                                    <iconify-icon icon="ri:facebook-fill"></iconify-icon>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="social-icon">
+                                    <iconify-icon icon="mdi:twitter"></iconify-icon>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="social-icon">
+                                    <iconify-icon icon="mdi:instagram"></iconify-icon>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
         </footer>
+        <nav class="bottom-navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="icon-cont">
+                            <iconify-icon icon="solar:shop-linear"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon-cont">
+                            <iconify-icon icon="mdi:heart-outline"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon-cont">
+                            <iconify-icon icon="fluent-mdl2:add-to"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon-cont">
+                            <iconify-icon icon="ooui:message"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./profile.html">
+                        <div class="icon-cont">
+                            <iconify-icon icon="mdi:face-happy"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <script type="module" src="./products.js"></script>
+    <script type="module" src="./product-detail.js"></script>
 </body>
+
 </html>

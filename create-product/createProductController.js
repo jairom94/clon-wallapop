@@ -1,3 +1,4 @@
+import { createProduct } from "./createProductModel.js";
 import { inputDescription, maxLengthByDescription } from "./createProductView.js";
 
 export function createProductController() {
@@ -31,15 +32,15 @@ export function createProductController() {
         const sell = $sell.checked;
         const typeRaw = [
             {
-                type:'buy',
+                type:'Compra',
                 state:buy
             },
             {
-                type:'sell',
+                type:'Venta',
                 state:sell
             },
         ]
-        const type = typeRaw.find(t => t.state) ?? {}
+        const type = typeRaw.find(t => t.state).type ?? ''
         const $images = $formCreateProduct.querySelector('#images');
 
         const $category = $formCreateProduct.querySelector('#category');
@@ -79,7 +80,7 @@ export function createProductController() {
             {                
                 name:'type',
                 currentValue:type,
-                initialValue:{}, 
+                initialValue:'', 
                 required:true,               
             },
             {                
@@ -90,27 +91,68 @@ export function createProductController() {
             },
         ]
 
-        for (const field_ of fields) {
-            const buildField = field(field_);
+        for (const field of fields) {
+            const buildField = fieldForm(field);
             const errorsValidate = buildField.validateField()
-            if (JSON.stringify(errorsValidate[field_.name].errors) !== "{}") {                
+            if (JSON.stringify(errorsValidate[field.name].errors) !== "{}") {                
                 // console.log(errorsValidate);
                 errors.push(errorsValidate)
             }           
         }
 
         if (errors.length === 0) {
-
+            const event = new CustomEvent('create-product-start');
+            $formCreateProduct.dispatchEvent(event);
+            const product = {
+                title,
+                description,
+                images:imagestoBase64,
+                price,
+                type,
+                category
+            }
+            handleCreateProduct(product,$formCreateProduct)
+            // console.log(product);
+            
         }else{
             // console.log(errors);
-            
-            const event = new CustomEvent('error-create-product',{
-                detail:errors
+            errors.forEach(field => {
+                const [[_,detail]] = Object.entries(field)
+                const err = Object.entries(detail.errors)
+                err.forEach(([_,{message}])=>{
+                    // show(message,'error')
+                    const event = new CustomEvent('error-create-product',{
+                        detail:message
+                    });
+                    $formCreateProduct.dispatchEvent(event);
+                })
             });
-            $formCreateProduct.dispatchEvent(event);
+
+            
 
         }
     })
+
+    async function handleCreateProduct(product,formCreateProduct) {
+        try {
+            await createProduct(product)
+            const event = new CustomEvent('create-product-ok', {
+                detail: {
+                    message:'success, product created',
+                    type:'success'
+                }
+            });
+            formCreateProduct.dispatchEvent(event);
+        } catch (error) {
+            const event = new CustomEvent('error-create-product', {
+                detail: error.message
+            });
+            formCreateProduct.dispatchEvent(event);
+        } finally {
+            const event = new CustomEvent('create-product-finish');
+            formCreateProduct.dispatchEvent(event);
+        }
+    }
 }
 
 function imagesBase64($images) {
@@ -119,14 +161,19 @@ function imagesBase64($images) {
         return new Promise((resolve) => {
             const reader = new FileReader();
             reader.onload = (e) => {
-                resolve(e.target.result.split(',')[1]);
+                const imageObj = {
+                    nombre: image.name,
+                    formato: image.type.split('/')[1],
+                    datos_base64: e.target.result.split(',')[1]
+                }
+                resolve(imageObj);
             };
             reader.readAsDataURL(image);
         });
     })
 }
 
-function field({name,currentValue,initialValue,required=false,minlength=0}) {
+function fieldForm({name,currentValue,initialValue,required=false,minlength=0}) {
     const value = currentValue;
     const error={}
     const validations = {

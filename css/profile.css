@@ -1,0 +1,6 @@
+div#page{
+    > main.profile-page{
+        flex: 1;
+        background-color: var(--color-gray-product);
+    }
+}

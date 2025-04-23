@@ -1,10 +1,10 @@
-export const createProduct = async ({ title, descrption, price, type, category }) => {
+export const createProduct = async ({ title, description, price, type, category, images }) => {
     const token = localStorage.getItem('token');
     const response = await fetch('http://localhost:8000/api/products', {
         method: "POST",
         body: JSON.stringify({
             title,
-            descrption,
+            description,
             price,
             type,
             category,
@@ -17,6 +17,6 @@ export const createProduct = async ({ title, descrption, price, type, category }
     })
     if (!response.ok) {
         // const data = await response.json();
-        throw new Error('No se ha podido crear el producto.')
+        throw new Error('No se ha podido crear el producto, inténtalo más tarde.')
     }
 }

@@ -29,6 +29,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     $formLogin.addEventListener('login-error',(e)=>{
         notification1.show(e.detail,'error')
     })
+    $formLogin.addEventListener('login-ok',(e)=>{
+        const searchParams = new URLSearchParams(window.location.search);
+        const fromPage = searchParams.get('from') ?? '';
+        if (!!fromPage) {
+            window.location = fromPage;
+        }else {
+            window.location = './index.html'
+        }
+    })
 
     //Events loading
     const $contLoader = document.querySelector('.cont-loader');
@@ -39,6 +48,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     $formLogin.addEventListener('login-load-finish',(e)=>{
         hide();
     })
+
+    
     loginController();
     
 })

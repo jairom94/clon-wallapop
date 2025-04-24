@@ -2,5 +2,139 @@ div#page{
     > main.profile-page{
         flex: 1;
         background-color: var(--color-gray-product);
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        padding-top: 3rem;
+        > .controls {
+            background-color: var(--color-white);
+            max-width: 80dvw;
+            margin: 0 auto;            
+            width: 100%;            
+            border-radius: 2rem;
+            padding: .5rem 0;
+            > ul {                
+                display: flex;
+                padding: 0 .3rem;
+                gap: .3rem;
+                > li{
+                    > button {
+                        display: inline-block;
+                        padding: 1.5rem 2rem;
+                        border: none;
+                        border-radius: 2rem;
+                    }
+                }
+            }
+        }
+        > .personal-information{
+            > div{
+                max-width: 80dvw;
+                margin: 0 auto;
+                background-color: var(--color-white);
+                border-radius: 2rem;
+                overflow: hidden;
+                padding-bottom: 5rem;
+                > div.user-profile{
+                    font-family: sans-serif;
+                    >figure.banner-header {
+                        height: 300px;
+                        position: relative;
+                        > img {
+                            width: 100%;
+                            height: 100%;
+                            aspect-ratio: 16/9;
+                            object-fit: cover;
+                            object-position: center left;
+                        }
+                        > div {
+                            position: absolute;
+                            bottom: -50%;
+                            left: 50%;
+                            transform: translate(-50%,-25%);
+                            width: 200px;
+                            height: 200px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            border: .8rem solid var(--color-white);
+                            > img.user-image { 
+                                width: 100%;                                
+                                /* height: 100%; */
+                                object-fit: cover;
+                                object-position: center;
+                            }
+                        }
+                    }
+                    > div.information {
+                        padding-top: 100px;
+                        display: flex;
+                        justify-content: center;
+                    }
+                    > div.items {
+                        padding-top: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        gap: 1rem;
+                        > div.item {
+                            display: flex;
+                            flex-direction: column;
+                            padding: 1rem;
+                            background-color: var(--color-cyan);
+                            min-width: 80px;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 1rem;
+                            color: var(--color-white);
+                            gap: .4rem;
+                            > div {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: .3rem;
+                                > div.icon-cont {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-size: 1.3rem;
+                                }
+                                > span {
+                                    font-size: 1.2rem;
+                                    font-weight: 600;
+                                    color: var(--color-black-product-name);
+                                }
+                            }
+                            > p {
+                                font-size: .8rem;
+                                text-shadow: 1px 1px 2px var(--color-black-blue);
+                            }
+                        }
+                    }
+                    > div.personal-dates{
+                        padding-top: 2rem;
+                        max-width: 80%;
+                        /* background-color: violet; */
+                        margin: 0 auto;
+                        color: var(--color-black-blue);
+                        > div{
+                            display: flex;
+                            gap: .4rem;
+                        }
+                    }
+                }
+            }
+        }
+        > .all-products {            
+            > div {
+                max-width: 80dvw;
+                background-color: var(--color-white);
+                margin: 0 auto;
+                border-radius: 2rem;
+                overflow: hidden;
+                padding: 1rem .5rem;
+                > .my-products{
+                    /* background-color: yellowgreen; */
+                }
+            }
+        }
     }
 }

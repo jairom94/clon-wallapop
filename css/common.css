@@ -64,7 +64,7 @@ h4 {
     background-color: #385ef9;
 }
 
-div.container {
+div.container-init {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
@@ -79,8 +79,13 @@ footer.footer-page {
     height: 100px;
     background-color: darkmagenta;
 }
+img {
+    width: 100%;
+}
 
 footer.footer-main{
+    /* border-top: 1px solid var(--color-gray); */
+    box-shadow: 0 -.5px 5px var(--color-black-blue);
     > div{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -184,8 +189,51 @@ nav.bottom-navigation {
                 display: inline-block;
                 padding: 1rem;
                 color: var(--color-gray-dark);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all .3s ease;
+                font-family: inherit;
                 > div.icon-cont{
                     font-size: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    /* background-color: yellowgreen; */
+                }
+                &:hover{
+                    color: var(--color-green-blue);
+                }
+                > span {
+                    font-family: inherit;
+                }
+            }
+            &:has(button){
+                > button {
+                    border: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    display: inline-block;
+                    padding: 1rem;
+                    color: var(--color-gray-dark);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    transition: all .3s ease;
+                    font-family: inherit;
+                    > div.icon-cont{
+                        font-size: 2rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        /* background-color: yellowgreen; */
+                    }
+                    &:hover{
+                        color: var(--color-green-blue);
+                    }
+                    > span {
+                        font-family: inherit;
+                    }
                 }
             }
         }

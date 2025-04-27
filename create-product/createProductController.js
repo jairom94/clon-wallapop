@@ -17,6 +17,8 @@ export function createProductController() {
         maxLengthByDescription($maxLengthContainer, current, max)
     });
 
+    
+
 
     $formCreateProduct.addEventListener('submit', async(e) => {
         e.preventDefault();
@@ -40,7 +42,7 @@ export function createProductController() {
                 state:sell
             },
         ]
-        const type = typeRaw.find(t => t.state).type ?? ''
+        const type = typeRaw.find(t => t.state)?.type ?? ''
         const $images = $formCreateProduct.querySelector('#images');
 
         const $category = $formCreateProduct.querySelector('#category');
@@ -51,53 +53,53 @@ export function createProductController() {
         const errors = []
 
         const fields = [
-            {                
+            {
                 name:'title',
                 initialValue:'',
                 currentValue:title,
                 required:true,
-                minlength:10                
+                minlength:10
             },
-            {                
+            {
                 name:'description',
                 initialValue:'',
                 currentValue:description,
                 required:true,
                 minlength:20
             },
-            {                
+            {
                 name:'images',
                 currentValue:imagestoBase64,//Array.from($images.files),
                 initialValue:[],
-                required:true,               
+                required:true,
             },
-            {                
+            {
                 name:'price',
                 currentValue:price,
-                initialValue:'',  
-                required:true,            
+                initialValue:'',
+                required:true,
             },
-            {                
+            {
                 name:'type',
                 currentValue:type,
-                initialValue:'', 
-                required:true,               
+                initialValue:'',
+                required:true,
             },
-            {                
+            {
                 name:'category',
                 currentValue:category,
-                initialValue:'', 
-                required:true,               
+                initialValue:'',
+                required:true,
             },
         ]
 
         for (const field of fields) {
             const buildField = fieldForm(field);
             const errorsValidate = buildField.validateField()
-            if (JSON.stringify(errorsValidate[field.name].errors) !== "{}") {                
+            if (JSON.stringify(errorsValidate[field.name].errors) !== "{}") {
                 // console.log(errorsValidate);
                 errors.push(errorsValidate)
-            }           
+            }
         }
 
         if (errors.length === 0) {
@@ -113,7 +115,7 @@ export function createProductController() {
             }
             handleCreateProduct(product,$formCreateProduct)
             // console.log(product);
-            
+
         }else{
             // console.log(errors);
             errors.forEach(field => {
@@ -128,7 +130,7 @@ export function createProductController() {
                 })
             });
 
-            
+
 
         }
     })
@@ -189,7 +191,7 @@ function fieldForm({name,currentValue,initialValue,required=false,minlength=0}) 
     }
     return {
         validateField(){
-            const err = {}            
+            const err = {}
             if (required) {
                 if (funValidation((value_)=>JSON.stringify(value_)===JSON.stringify(initialValue))) {
                     err['required'] = validations.required

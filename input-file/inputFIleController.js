@@ -3,7 +3,9 @@ import { clearImages, dropMessage, errorMessage, inputFileView } from "./inputFi
 export function inputFileController($dropZone,idInputFile,name) {
     // const $dropZone = document.querySelector('.drop-zone');
     const formatFiles = ['image/png', 'image/jpeg'];
-    const $previewImages = document.querySelector('.preview-container')
+    const $previewImages = $dropZone.nextElementSibling//querySelector('.preview-container')
+    console.log($previewImages);
+    
     const $errorMessage = errorMessage('Formato incorrecto.')
     let objectURLs = [];
 

@@ -9,3 +9,17 @@ export const getMyProducts = async (userID) => {
     return products
         
 };
+
+export const removeProduct = async (productID) => {
+    const token = localStorage.getItem('token');
+    const response = await fetch(`http://localhost:8000/api/products/${productID}`,{
+        method:"DELETE",
+        headers:{
+            "Content-type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    })
+    if (!response.ok) {
+        throw new Error('No fue posible borrar')
+    }
+}

@@ -23,7 +23,9 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="./notification/notifications.css">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/profile.css">        
+    <!-- <link rel="stylesheet" href="css/create-product.css"> -->
+    <link rel="stylesheet" href="./input-file/drop-zone.css">
 
 
     <title>Profile</title>
@@ -139,17 +141,17 @@
             <section class="controls">
                 <ul>
                     <li>
-                        <button>
+                        <button class="btn-personal-information">
                             Personal Information
                         </button>
                     </li>
                     <li>
-                        <button>
+                        <button class="btn-all-products">
                             Products
                         </button>
                     </li>
                     <li>
-                        <button>
+                        <button class="btn-add-product">
                             Add Product
                         </button>
                     </li>
@@ -222,71 +224,71 @@
             </section>
             <section class="all-products">
                 <div>
-                    <ul class="my-products">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nro.</th>
-                                    <th scope="col">Titulo</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <button class="btn btn-primary">
-                                            <div class="icon-cont">
-                                                <iconify-icon icon="solar:shop-linear"></iconify-icon>
-                                            </div>
-                                        </button>
-                                        <button class="btn btn-danger">
-                                            <div class="icon-cont">
-                                                <iconify-icon icon="solar:shop-linear"></iconify-icon>
-                                            </div>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>
-                                        <button class="btn btn-primary">
-                                            <div class="icon-cont">
-                                                <iconify-icon icon="solar:shop-linear"></iconify-icon>
-                                            </div>
-                                        </button>
-                                        <button class="btn btn-danger">
-                                            <div class="icon-cont">
-                                                <iconify-icon icon="solar:shop-linear"></iconify-icon>
-                                            </div>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>
-                                        <button class="btn btn-primary">
-                                            <div class="icon-cont">
-                                                <iconify-icon icon="solar:shop-linear"></iconify-icon>
-                                            </div>
-                                        </button>
-                                        <button class="btn btn-danger">
-                                            <div class="icon-cont">
-                                                <iconify-icon icon="solar:shop-linear"></iconify-icon>
-                                            </div>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </ul>
+                    <h2>Productos</h2>
+                    <div class="my-products">                        
+                    </div>
+                </div>
+            </section>
+            <section class="add-product">
+                <div>
+                    <div class="form-container">
+                        <form class="form-create-product">
+                            <div>
+                                <label for="title">Titulo</label>
+                                <input type="text" name="title" id="title" autocomplete="off">
+                            </div>
+                            <fieldset class="description-container">
+                                <legend>Descripción</legend>  
+                                <div>
+                                    <div class="max-lenght-container"></div>
+                                </div>                          
+                            </fieldset>
+                            <fieldset >
+                                <legend>Imagen</legend>
+                                <div class="drop-zone">                                    
+                                </div>
+                                <div class="preview-container"></div>
+                            </fieldset>
+                            <div class="price-content">
+                                <label for="price">Precio</label>
+                                <div>
+                                    <input type="number" name="price" id="price"
+                                    placeholder="0.00"
+                                    autocomplete="off"
+                                    pattern="^\d+\.\d{2}$">
+                                    <div class="ico-price">
+                                        <iconify-icon icon="iconoir:euro-square-solid"></iconify-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <fieldset>
+                                <legend>Tipo de anuncio</legend>
+                                <ul>
+                                    <li>
+                                        <label for="buy">Compra</label>
+                                        <input type="radio" name="type" id="buy">
+                                        <span></span>
+                                    </li>
+                                    <li>
+                                        <label for="sell">Venta</label>
+                                        <input type="radio" name="type" id="sell">
+                                        <span></span>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                            <div class="dropdown-cont">
+                                <div class="ico">
+                                    <iconify-icon icon="mdi:arrow-down-bold-box"></iconify-icon>
+                                </div>
+                                <select name="category" id="category">
+                                    <option value="">--Select category--</option>
+                                </select>
+                            </div>
+                            <div class="btn-submit">
+                                <button type="submit">Crear Producto</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </section>
         </main>
@@ -385,6 +387,7 @@
     </nav>
     <script type="module" src="./session.js"></script>
     <script type="module" src="./profile.js"></script>
+    <script type="module" src="./create-product.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>

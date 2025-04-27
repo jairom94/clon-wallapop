@@ -4,14 +4,16 @@ import { inputFileController } from "./input-file/inputFIleController.js";
 import { loaderController } from "./loader/loaderController.js";
 import { notificationController } from "./notification/notificationController.js";
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',async()=>{
     const $formCreateProduct = document.querySelector('.form-create-product');
     
     const $selectCategory = $formCreateProduct.querySelector('#category');
-    categoryProductController($selectCategory);
+    await categoryProductController($selectCategory);
 
     const $dropZone = document.querySelector('.drop-zone');
     inputFileController($dropZone,'images','images');
+    // console.log($dropZone,$selectCategory);
+    
 
     const {show} = notificationController();    
     $formCreateProduct.addEventListener('error-create-product',(e)=>{
@@ -19,7 +21,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     })
     $formCreateProduct.addEventListener('create-product-ok',(e)=>{
         show(e.detail.message,e.detail.type)
-        window.location = '/create-product.html'                
+        window.location = '/profile.html?section=all-products'                
     })
 
     //Event to loader
@@ -32,6 +34,5 @@ document.addEventListener('DOMContentLoaded',()=>{
         loader.hide()
     })
 
-    
     createProductController();
 });

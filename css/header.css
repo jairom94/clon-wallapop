@@ -94,20 +94,26 @@ header.header-main {
                 transition: all .3s ease-in-out;
                 border-bottom: 3px solid var(--color-white);
                 border-top: 3px solid var(--color-white);
-
-                &:has(.ico-burger) {
-                    /* background-color: teal; */
-                    display: flex;
-                    align-items: center;
-                    gap: .5rem;
-
-                    >div.ico-burger {
-                        /* background-color: yellow; */
+                &:has(button){
+                    > button {
                         display: flex;
-                        justify-content: center;
                         align-items: center;
-                        font-size: 1.5rem;
-                    }
+                        gap: .5rem;
+                        border: none;
+                        background-color: transparent;
+                        cursor: pointer;
+                        transition: all .3s ease;
+                        >div.ico-burger {
+                            /* background-color: yellow; */
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1.5rem;
+                        }
+                        &:hover{
+                            opacity: .5;
+                        }                   
+                    } 
                 }
 
                 &:hover {
@@ -125,7 +131,7 @@ header.header-main {
         z-index: 999;
         padding: 0 1rem;
         border: 1px solid var(--color-gray);
-        display: none;
+        /* display: none; */
 
         >div.cont-button-close {
             /* background-color: yellowgreen; */
@@ -215,6 +221,10 @@ header.header-main {
             }
         }
     }
+}
+
+.hide-menu{
+    display: none;
 }
 
 

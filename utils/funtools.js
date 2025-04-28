@@ -30,3 +30,22 @@ export function crearArchivoDesdeBase64({ nombre, formato, datos_base64 }) {
     // Crear File
     return new File([byteArrays], nombre, { type: mimeType });
 }
+
+
+export function imagesBase64($images) {
+    return Array.from($images.files)
+    .map(image => {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imageObj = {
+                    nombre: image.name,
+                    formato: image.type.split('/')[1],
+                    datos_base64: e.target.result.split(',')[1]
+                }
+                resolve(imageObj);
+            };
+            reader.readAsDataURL(image);
+        });
+    })
+}

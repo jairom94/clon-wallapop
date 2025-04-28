@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
     const $selectCategory = $formCreateProduct.querySelector('#category');
     await categoryProductController($selectCategory);
 
-    const $dropZone = document.querySelector('.drop-zone');
+    const $dropZone = $formCreateProduct.querySelector('.drop-zone');    
     inputFileController($dropZone,'images','images');
     // console.log($dropZone,$selectCategory);
     

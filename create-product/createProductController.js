@@ -1,3 +1,4 @@
+import { imagesBase64 } from "../utils/funtools.js";
 import { createProduct } from "./createProductModel.js";
 import { inputDescription, maxLengthByDescription } from "./createProductView.js";
 
@@ -157,23 +158,23 @@ export function createProductController() {
     }
 }
 
-function imagesBase64($images) {
-    return Array.from($images.files)
-    .map(image => {
-        return new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const imageObj = {
-                    nombre: image.name,
-                    formato: image.type.split('/')[1],
-                    datos_base64: e.target.result.split(',')[1]
-                }
-                resolve(imageObj);
-            };
-            reader.readAsDataURL(image);
-        });
-    })
-}
+// function imagesBase64($images) {
+//     return Array.from($images.files)
+//     .map(image => {
+//         return new Promise((resolve) => {
+//             const reader = new FileReader();
+//             reader.onload = (e) => {
+//                 const imageObj = {
+//                     nombre: image.name,
+//                     formato: image.type.split('/')[1],
+//                     datos_base64: e.target.result.split(',')[1]
+//                 }
+//                 resolve(imageObj);
+//             };
+//             reader.readAsDataURL(image);
+//         });
+//     })
+// }
 
 function fieldForm({name,currentValue,initialValue,required=false,minlength=0}) {
     const value = currentValue;

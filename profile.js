@@ -1,6 +1,7 @@
 import { categoryProductController } from "./category-product/categoryProductController.js";
 import { inputFileController } from "./input-file/inputFIleController.js";
 import { myProductsController } from "./my-products/myProductsController.js";
+import { profileController } from "./profile/profileController.js";
 import { getLoggedInUserInfo } from "./user-logged/userServices.js";
 
 document.addEventListener('DOMContentLoaded',async (e)=>{
@@ -10,18 +11,13 @@ document.addEventListener('DOMContentLoaded',async (e)=>{
         window.location = `/door.html?from=${fromPage}`;
     }
 
-    const user = await getLoggedInUserInfo()
+    const { id } = await getLoggedInUserInfo()
 
-    await myProductsController(user.id)
+    await profileController(id)
+
     const $myProducts = document.querySelector('.my-products');
-    const $formUpdate = $myProducts.querySelector('.form-update-product')
+    await myProductsController(id)
     
-    const $dropZone = $formUpdate.querySelector('.drop-zone');
-    inputFileController($dropZone,'images-update','images');
-    
-    const $selectCategory = $formUpdate.querySelector('#category-update');
-    await categoryProductController($selectCategory);
-    // console.log($formUpdate);
     
 
     

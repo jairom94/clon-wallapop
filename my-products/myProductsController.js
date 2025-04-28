@@ -21,7 +21,7 @@ export async function myProductsController(userID) {
             const $modalDelete = useModaleDelete.getDialog()
 
             //diseño input file update
-            const formatFiles = ['image/png', 'image/jpeg'];
+            const formatFiles = ['image/png', 'image/jpeg','image/avif'];
             const $inputFile = $formUpdate.querySelector('#images-update')
             const $dropZone = $formUpdate.querySelector('.drop-zone')
             const $previewImages = $dropZone.nextElementSibling

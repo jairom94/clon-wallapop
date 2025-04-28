@@ -45,11 +45,16 @@ div#page {
                                 font-size: .85rem;
                                 font-weight: 700;
                                 top: 5px;
-                                left: 5px;
-                                background-color: var(--color-green-blue);
+                                left: 5px;                                
                                 color: #fff;
                                 padding: .15rem .5rem;
                                 border-radius: .3rem;
+                            }
+                            > span.compra{
+                                background-color: var(--color-delivery-type);
+                            }
+                            > span.venta{
+                                background-color: var(--color-green-blue);
                             }
 
                             >img {

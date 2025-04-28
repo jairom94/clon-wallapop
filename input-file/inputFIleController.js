@@ -2,7 +2,7 @@ import { clearImages, dropMessage, errorMessage, inputFileView } from "./inputFi
 
 export function inputFileController($dropZone,idInputFile,name) {
     // const $dropZone = document.querySelector('.drop-zone');
-    const formatFiles = ['image/png', 'image/jpeg'];
+    const formatFiles = ['image/png', 'image/jpeg','image/avif'];
     const $previewImages = $dropZone.nextElementSibling//.querySelector('#preview-container-create')
     console.log($previewImages);
     // return

@@ -10,7 +10,7 @@ export async function headerController() {
     const categories = await allCategories()
     $containerMenuVertical.innerHTML = menuVertical(categories)
     const $btnCloseMenuVertical = $containerMenuVertical.querySelector('.btn-close-menu-vertical')
-    console.log($btnCloseMenuVertical);
+    // console.log($btnCloseMenuVertical);
     
     $btnCloseMenuVertical.addEventListener('click',()=>{
         console.log('removiendo');        

@@ -5,36 +5,36 @@ export function buildProduct({ id,title, description, images, price, type, categ
   const cleanImage = images.map(img => fromBase64toImage(img.datos_base64,img.formato))    
   return `
     <a href="/product-detail.html?id=${id}">
-                            <figure>
-                                <img src="${cleanImage.length > 0 ? cleanImage[0] : defaultImage}" alt="placeholder">                                
-                                <span>${type}</span>
-                            </figure>
-                            <div class="detail">
-                                <p class="price">${Number(price).toFixed(2)} EUR</p>
-                                <h2 class="name">${title}</h2>
-                                <div class="delivery-type">
-                                    <div class="ico-delivery">
-                                        <iconify-icon icon="ic:round-fire-truck"></iconify-icon>
-                                    </div>
-                                    <span>Envio Disponible</span>
-                                </div>
-                                <p class="detail-product">
-                                    ${description}
-                                </p>
-                                <div class="rating-cont">
-                                    <h3>Vendido por:</h3>
-                                    <div>
-                                        <span class="owner">Layla</span>
-                                        <span class="star">
-                                            <div class="ico-star">
-                                                <iconify-icon icon="ic:round-star"></iconify-icon>
-                                            </div>
-                                            <span class="rating">5(20)</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+        <figure>
+            <img src="${cleanImage.length > 0 ? cleanImage[0] : defaultImage}" alt="placeholder">                                
+            <span class='${type.toLowerCase()}'>${type}</span>
+        </figure>
+        <div class="detail">
+            <p class="price">${Number(price).toFixed(2)} EUR</p>
+            <h2 class="name">${title}</h2>
+            <div class="delivery-type">
+                <div class="ico-delivery">
+                    <iconify-icon icon="ic:round-fire-truck"></iconify-icon>
+                </div>
+                <span>Envio Disponible</span>
+            </div>
+            <p class="detail-product">
+                ${description}
+            </p>
+            <div class="rating-cont">
+                <h3>Vendido por:</h3>
+                <div>
+                    <span class="owner">Layla</span>
+                    <span class="star">
+                        <div class="ico-star">
+                            <iconify-icon icon="ic:round-star"></iconify-icon>
+                        </div>
+                        <span class="rating">5(20)</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </a>
     `
 }
 
@@ -102,4 +102,8 @@ export function whitoutConnection() {
   </div>
 </li>
     `
+}
+
+export function pagination(){
+  
 }

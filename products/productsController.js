@@ -1,4 +1,4 @@
-import { getProducts } from "./productsModel.js";
+import { getProducts, getProductsPaginate } from "./productsModel.js";
 import { buildProduct, whitoutConnection } from "./productsView.js";
 
 export async function productsController(){
@@ -7,6 +7,9 @@ export async function productsController(){
         const event = new CustomEvent('load-products-start')       
         $producstContainer.dispatchEvent(event)
         const products = await getProducts();
+        const pPaginate = await getProductsPaginate();
+        console.log(pPaginate);
+        
         if (products.length > 0) {            
             $producstContainer.innerHTML = '';
             const alingCSS = products.length > 1 

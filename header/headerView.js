@@ -25,10 +25,10 @@ export function headerMenu() {
     `
 }
 
-export function menuVertical() {
+export function menuVertical(categories) {
     return `
     <div class="cont-button-close">
-        <button>
+        <button class='btn-close-menu-vertical'>
             <div class="ico-close">
                 <iconify-icon icon="ic:baseline-close"></iconify-icon>
             </div>
@@ -38,7 +38,7 @@ export function menuVertical() {
     <nav>
         <ul>
             <li>
-                <a href="#">
+                <a href="/products.html">
                     <div class="ico">
                         <iconify-icon icon="material-symbols:border-all-rounded"></iconify-icon>
                     </div>
@@ -47,36 +47,18 @@ export function menuVertical() {
                     </span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <div class="ico">
-                        <iconify-icon icon="material-symbols:directions-car-outline-sharp"></iconify-icon>
-                    </div>
-                    <span>
-                        Coche
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="ico">
-                        <iconify-icon icon="material-symbols:motorcycle-rounded"></iconify-icon>
-                    </div>
-                    <span>
-                        Motos
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="ico">
-                        <iconify-icon icon="material-symbols:warehouse-outline-rounded"></iconify-icon>
-                    </div>
-                    <span>
-                        Inmobiliaria
-                    </span>
-                </a>
-            </li>
+            ${categories.map(({name}) => (
+                `<li>
+                    <a href="/products.html?category=${name}">
+                        <div class="ico">
+                            <iconify-icon icon="material-symbols:category"></iconify-icon>
+                        </div>
+                        <span>
+                            ${name}
+                        </span>
+                    </a>
+                </li>`
+            )).join('')}            
         </ul>
     </nav>
     `

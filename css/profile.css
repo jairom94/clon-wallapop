@@ -205,10 +205,7 @@ div#page{
                 border: 2px solid transparent;
                 padding: 2rem;
                 border-radius: 2rem;
-                >div.form-container {
-                    /* display: none; */
-                    /* background-color: yellowgreen; */
-                    /* box-shadow: .3rem .25rem 10px var(--color-black-blue); */
+                >div.form-container {                    
                     > form {                    
                         font-family: sans-serif;
                         display: flex;
@@ -487,6 +484,31 @@ li{
         > button {
             flex: 1;
             display: flex;            
+        }
+    }
+}
+
+@media screen and (width > 768px) {
+    div#page{
+        > main.profile-page{
+            > .controls{
+                max-width: 800px;                
+            }
+            > .all-products{
+                > div {
+                    max-width: 800px;
+                }
+            }
+            > .personal-information{
+                > div {
+                    max-width: 800px;
+                }
+            }
+            > section.add-product {
+                > div {
+                    max-width: 800px;
+                }
+            }
         }
     }
 }

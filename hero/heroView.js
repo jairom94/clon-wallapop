@@ -7,14 +7,14 @@ export function heroDisplay() {
                             <br>
                             <span>de segunda mano.</span>
                         </p>
-                        <button class="btn-hero-1">
+                        <a class="btn-hero-1" href='/profile.html'>
                             <div>
                                 <iconify-icon icon="octicon:plus-circle-24"></iconify-icon>
                             </div>
                             <span>
                                 Vender Ahora
                             </span>
-                        </button>
+                        </a>
                     </div>
                     <figure class="cont-img">
                         <img src="./imgs/hero1.avif" alt="">

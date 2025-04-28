@@ -14,7 +14,7 @@ section.products{
         }
         > ul {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1rem;
             > li {
                 /* overflow: hidden; */
@@ -41,5 +41,26 @@ section.products{
                 }
             }
         }
+        > ul.mobile {            
+            
+        }
+        > ul.desktop {
+            display: none;
+        }
     }
+}
+
+@media screen and (width >= 768px) {
+    section.products {
+        > div {
+            ul.mobile {
+                display: none;
+            }
+            > ul.desktop {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    }
+
 }

@@ -54,7 +54,7 @@ section.hero {
                 }
             }
 
-            >button {
+            >a,button {
                 border-radius: 2rem;
                 padding: .8rem 2rem;
                 outline: none;

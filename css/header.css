@@ -326,5 +326,9 @@ header.header-main {
         >div.line-2 {
             padding-left: 2rem;
         }
+        >div.menu-vertical {            
+            left: 0;
+            top: 9rem;
+        }
     }
 }

@@ -6,8 +6,42 @@ export function sessionView($navigationMobile) {
     const $loginSession = document.createElement('li');
     const $registerSession = document.createElement('li');
 
+    const containerLogin = document.createElement('div')
+    const $loginSessionDesktop = document.createElement('a')
+    $loginSessionDesktop.classList.add('btn-login')
+    $loginSessionDesktop.textContent = 'Regístrate o inicia sesión'
+    $loginSessionDesktop.href = '/door.html'
+    containerLogin.appendChild($loginSessionDesktop)
+
+    const containerVender = document.createElement('div')
+    const $vender = document.createElement('a')
+    $vender.classList.add('btn-sell')
+    $vender.textContent = 'Vender'
+    $vender.href = '/profile.html'
+    containerVender.appendChild($vender)
+
 
     return {
+        buildAuthorizedDesktop(sessionDesktop){
+            sessionDesktop.innerHTML = `
+            <div class='to-profile'>
+                <a href="./profile.html">
+                    <div class="icon-cont">
+                        <iconify-icon icon="majesticons:user"></iconify-icon>
+                    </div>
+                    <span>Perfil</span>
+                </a>
+            </div>
+            <div class='logout-desktop'>
+                <button id='btn-logout-desktop'>
+                    <div class="icon-cont">
+                        <iconify-icon icon="heroicons-outline:logout"></iconify-icon>
+                    </div>
+                    <span>Cerrar sesión</span>
+                </button>
+            </div>
+            `
+        },
         buildAuthorized(handleClickBtn) {
             const $linkProfile = `
                 <a href="./profile.html">
@@ -43,6 +77,10 @@ export function sessionView($navigationMobile) {
         removeAuthorized() {
             $profileSession.remove()
             $logoutSession.remove()
+        },
+        buildUnAuthorizedDesktop(sessionDesktop){
+            sessionDesktop.appendChild(containerLogin)
+            sessionDesktop.appendChild(containerVender)
         },
         buildUnAuthorized() {
             const $linkLogin = `

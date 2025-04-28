@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
 </head>
 
@@ -29,6 +30,11 @@
                 <div class="logo">
                     <img src="./imgs/logo.svg" alt="logo wallapop">
                 </div>
+                <div class="logo-desktop">
+                    <a href="/">
+                        <img src="./imgs/logo-desktop.svg" alt="logo wallapop">
+                    </a>
+                </div>
                 <div class="frm-search">
                     <input class="txt_search" type="text" name="search" id="search" placeholder="Busca vinilos">
                     <div class="ico-search">
@@ -37,6 +43,14 @@
                     <div class="placeholder">
                         
                     </div>
+                </div>
+                <div class="session-desktop">
+                    <!-- <div>
+                        <a class="btn-login" href="#">Regístrate o inicia sesión</a>
+                    </div>
+                    <div>
+                        <a class="btn-sell" href="#">Vender</a>
+                    </div> -->
                 </div>
             </div>
             <div class="line-2">
@@ -48,6 +62,27 @@
         </header>
         <main>
             <section class="hero">               
+            </section>
+            <section class="products">
+                <div>
+                    <h2>Lo que necesitas para tu jardín</h2>
+                    <ul>
+                        <li>
+                            <figure>
+                                <img src="./imgs/products/sofa.png" alt="sofá">
+                            </figure>
+                            <p class="title">Sofá de jardín</p>
+                            <p class="cant-post">4.100 anuncions</p>
+                        </li>
+                        <li>
+                            <figure>
+                                <img src="./imgs/products/mesa.png" alt="mesa de jardín">
+                            </figure>
+                            <p class="title">Sofá de jardín</p>
+                            <p class="cant-post">4.100 anuncions</p>
+                        </li>
+                    </ul>
+                </div>
             </section>
         </main>
         <footer class="footer-main">
@@ -143,8 +178,8 @@
             </li>                
         </ul>
     </nav>
-    <script type="module" src="./session.js"></script>
     <script type="module" src="./header.js"></script>
+    <script type="module" src="./session.js"></script>
     <script type="module" src="./hero.js"></script>
 </body>
 

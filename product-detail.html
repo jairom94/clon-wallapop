@@ -31,7 +31,9 @@
                     <img src="./imgs/logo.svg" alt="logo wallapop">
                 </div>
                 <div class="logo-desktop">
-                    <img src="./imgs/logo-desktop.svg" alt="logo wallapop">
+                    <a href="/">
+                        <img src="./imgs/logo-desktop.svg" alt="logo wallapop">
+                    </a>
                 </div>
                 <div class="frm-search">
                     <input class="txt_search" type="text" name="search" id="search" placeholder="Busca vinilos">
@@ -42,91 +44,19 @@
 
                     </div>
                 </div>
-                <div class="session">
-                    <div>
+                <div class="session-desktop">
+                    <!-- <div>
                         <a class="btn-login" href="#">Regístrate o inicia sesión</a>
                     </div>
                     <div>
                         <a class="btn-sell" href="#">Vender</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-            <div class="line-2">
-                <ul class="menu-horizontal">
-                    <li>
-                        <div class="ico-burger">
-                            <iconify-icon icon="tabler:menu-2"></iconify-icon>
-                        </div>
-                        <span>
-                            Todas las categorías
-                        </span>
-                    </li>
-                    <li>
-                        <span>
-                            Motor y Accesorios
-                        </span>
-                    </li>
-                    <li>
-                        <span>
-                            Moda y accesorios
-                        </span>
-                    </li>
-                </ul>
+            <div class="line-2">                
             </div>
-            <!-- <div class="menu-vertical">
-                <div class="cont-button-close">
-                    <button>
-                        <div class="ico-close">
-                            <iconify-icon icon="ic:baseline-close"></iconify-icon>
-                        </div>
-                    </button>
-                </div>
-                <p>Todas las categorías</p>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <div class="ico">
-                                    <iconify-icon icon="material-symbols:border-all-rounded"></iconify-icon>
-                                </div>
-                                <span>
-                                    Ver todo
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="ico">
-                                    <iconify-icon icon="material-symbols:directions-car-outline-sharp"></iconify-icon>
-                                </div>
-                                <span>
-                                    Coche
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="ico">
-                                    <iconify-icon icon="material-symbols:motorcycle-rounded"></iconify-icon>
-                                </div>
-                                <span>
-                                    Motos
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="ico">
-                                    <iconify-icon icon="material-symbols:warehouse-outline-rounded"></iconify-icon>
-                                </div>
-                                <span>
-                                    Inmobiliaria
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div> -->
+            <div class="menu-vertical">                
+            </div>
         </header>
         <main class="page product-detail-page">
             <section class="product-container">
@@ -192,12 +122,13 @@
             </div>
         </footer>
         <nav class="bottom-navigation">
-            <ul>
+            <ul class="session-navigation-mobile">
                 <li>
-                    <a href="#">
+                    <a href="./products.html">
                         <div class="icon-cont">
                             <iconify-icon icon="solar:shop-linear"></iconify-icon>
                         </div>
+                        <span>Inicio</span>
                     </a>
                 </li>
                 <li>
@@ -205,6 +136,7 @@
                         <div class="icon-cont">
                             <iconify-icon icon="mdi:heart-outline"></iconify-icon>
                         </div>
+                        <span>Favoritos</span>
                     </a>
                 </li>
                 <li>
@@ -212,6 +144,7 @@
                         <div class="icon-cont">
                             <iconify-icon icon="fluent-mdl2:add-to"></iconify-icon>
                         </div>
+                        <span>Súbelo</span>
                     </a>
                 </li>
                 <li>
@@ -219,18 +152,14 @@
                         <div class="icon-cont">
                             <iconify-icon icon="ooui:message"></iconify-icon>
                         </div>
+                        <span>Buzón</span>
                     </a>
-                </li>
-                <li>
-                    <a href="./profile.html">
-                        <div class="icon-cont">
-                            <iconify-icon icon="mdi:face-happy"></iconify-icon>
-                        </div>
-                    </a>
-                </li>
+                </li>                
             </ul>
         </nav>
     </div>
+    <script type="module" src="./header.js"></script>
+    <script type="module" src="./session.js"></script>
     <script type="module" src="./product-detail.js"></script>
 </body>
 

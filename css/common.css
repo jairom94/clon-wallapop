@@ -279,3 +279,9 @@ nav.bottom-navigation {
         }
     }
 }
+
+@media screen and (width > 768px) {
+    nav.bottom-navigation{
+        display: none;
+    }
+}

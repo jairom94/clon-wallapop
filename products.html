@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +20,13 @@
     <link rel="stylesheet" href="./notification/notifications.css">
     <link rel="stylesheet" href="./loader/loader.css">
     <link rel="stylesheet" href="css/products.css">
-    
+
+    <!-- CDN noUiSlider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
+
     <title>Products</title>
 </head>
+
 <body>
     <ul class="notification-container"></ul>
     <dialog class="cont-loader"></dialog>
@@ -54,21 +59,50 @@
                     </div> -->
                 </div>
             </div>
-            <div class="line-2">                
+            <div class="line-2">
             </div>
-            <div class="menu-vertical">                
+            <div class="menu-vertical">
             </div>
         </header>
         <main class="page products-page">
             <section class="filter">
-    
+                <div>
+                    <form class="filter-by">
+                        <div>
+                            <label for="search">Titulo</label>
+                            <input type="text" name="search" id="search">
+                        </div>
+                        <div>
+                            <p>Tipo de publicación</p>
+                            <div>
+                                <input type="radio" name="type" id="buy">
+                                <label for="buy">Compra</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="type" id="sell">
+                                <label for="sell">Venta</label>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Rango de precio</p>
+                            <div>
+                                <div id="price-slider"></div>
+                                <input type="hidden" id="price-min" name="min" value="0">
+                                <input type="hidden" id="price-max" name="max" value="1000">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="submit" value="Filtrar">
+                        </div>
+                    </form>
+                </div>
             </section>
             <section class="products">
                 <ul class="products-list">
                     <li class="loading"></li>
                     <li class="loading"></li>
                     <li class="loading"></li>
-                    <li class="loading"></li>                    
+                    <li class="loading"></li>
                 </ul>
             </section>
         </main>
@@ -162,11 +196,49 @@
                     </div>
                     <span>Buzón</span>
                 </a>
-            </li>                
+            </li>
         </ul>
     </nav>
+    <!-- CDN JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.getElementById('price-slider');
+            var formatForSlider = {
+                from: function (formattedValue) {
+                    return Number(formattedValue);
+                },
+                to: function (numericValue) {
+                    return Math.round(numericValue);
+                }
+            };
+            noUiSlider.create(slider, {
+                start: [100, 500],       // Valores iniciales [min, max]
+                connect: true,           // Barra conectada entre los handles
+                range: {
+                    'min': 0,
+                    'max': 1000
+                },
+                format: formatForSlider,
+                tooltips: {
+                    // tooltips are output only, so only a "to" is needed
+                    to: function (numericValue) {
+                        return numericValue.toFixed(1);
+                    }
+                },
+                step: 10,// Incrementos de 10 en 10                
+            });
+
+            // Actualizar valores en pantalla
+            slider.noUiSlider.on('update', function (values) {
+                document.getElementById('price-min').value = Math.round(values[0]);
+                document.getElementById('price-max').value = Math.round(values[1]);
+            });
+        })
+    </script>
     <script type="module" src="./header.js"></script>
     <script type="module" src="./session.js"></script>
     <script type="module" src="./products.js"></script>
 </body>
+
 </html>

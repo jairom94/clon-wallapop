@@ -36,26 +36,27 @@
                     </a>
                 </div>
                 <div class="frm-search">
-                    <input class="txt_search" type="text" name="search" id="search" placeholder="Busca vinilos">
+                    <input class="txt_search" type="text" name="search" id="search">
                     <div class="ico-search">
                         <iconify-icon icon="octicon:search-16"></iconify-icon>
                     </div>
                     <div class="placeholder">
-                        
+                        <span>Busca</span>
+                        <!-- <span class="change">vinillos</span> -->
                     </div>
                 </div>
-                <div class="session-desktop">                    
+                <div class="session-desktop">
                 </div>
             </div>
             <div class="line-2">
-                
+
             </div>
             <div class="menu-vertical">
-                
+
             </div>
         </header>
         <main>
-            <section class="hero">               
+            <section class="hero">
             </section>
             <section class="products">
                 <div>
@@ -164,7 +165,7 @@
                     </ul>
                 </section>
             </div>
-        </footer>        
+        </footer>
     </div>
     <nav class="bottom-navigation">
         <ul class="session-navigation-mobile">
@@ -199,10 +200,37 @@
                     </div>
                     <span>Buzón</span>
                 </a>
-            </li>                
+            </li>
         </ul>
     </nav>
     <script type="module" src="./header.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const placeholder = document.querySelector('.placeholder')
+            const first = placeholder.firstElementChild
+            const categories = ['relojes','Iphone','paddle','Nintendo','télefonos', 'cocina', 'baño', 'electrodmésticos', 'mecánica']
+            let index = 0;
+            function animate() { 
+                const spanChange = document.createElement('span')
+                spanChange.classList.add('change')
+                first.insertAdjacentElement('afterend',spanChange)                              
+                spanChange.textContent = categories[index];
+                setTimeout(() => {                    
+                    if (index < (categories.length-1)) {                        
+                        index++;
+                    }else{
+                        index = 0;
+                    }
+                    spanChange.remove()
+                    animate()                    
+                }, 3000);
+            }
+            animate()
+            
+        })
+
+    </script>
     <script type="module" src="./session.js"></script>
     <script type="module" src="./hero.js"></script>
 </body>

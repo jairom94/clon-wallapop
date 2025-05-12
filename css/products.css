@@ -2,10 +2,146 @@ div#page {
     main.products-page {
         flex: 1 0 100%;
 
-        /* background-color: yellow;  */
         >section.filter {
-            background-color: salmon;
             min-height: 100px;
+            max-width: 80dvw;
+            margin: 0 auto;
+
+            >div {
+                >form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                    font-family: sans-serif;
+                    >div {
+                        &:has(input) {
+                            display: flex;
+                            flex-direction: column;
+
+                            >label {
+                                font-size: 1.2rem;
+                                font-weight: 600;
+                                color: var(--color-black-product-detail);
+                            }
+
+                            >input {
+                                padding: .35rem .8rem;
+                                border-radius: .3rem;
+                            }
+                        }
+
+                        &:has(input[type="text"]) {
+                            /* display: flex; */
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+                            > input {
+                                border: 2px solid var(--color-green-blue);
+                            }
+                        }
+
+                        &:has(input[type="submit"]) {
+                            >input[type="submit"] {
+                                background-color: var(--color-green-blue);
+                                border: 1px solid var(--color-green-blue);
+                                color: var(--color-white);
+                                font-weight: 500;
+                                letter-spacing: .13rem;
+                                transition: all .3s ease;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: var(--color-white);
+                                    color: var(--color-black-blue);
+                                }
+                            }
+                        }
+
+                        >p {
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            color: var(--color-black-product-detail);
+                        }
+
+                        >div {
+                            padding-top: .5rem;
+
+                            &:has(input[type="radio"]) {
+                                display: flex;
+                                gap: 1rem;
+
+                                >input[type="radio"] {
+                                    opacity: 0;
+
+                                    &:hover {
+                                        +label {
+                                            color: var(--color-black-blue);
+
+                                            &::before {
+                                                border-color: var(--color-black-blue);
+                                            }
+                                        }
+                                    }
+
+                                    &:checked {
+                                        +label {
+                                            color: var(--color-black-blue);
+
+                                            &::before {
+                                                border-color: var(--color-black-blue);
+                                                background-color: var(--color-black-blue);
+                                            }
+
+                                            &::after {
+                                                opacity: 1;
+                                            }
+                                        }
+                                    }
+
+                                }
+
+                                >label {
+                                    /* background-color: indianred; */
+                                    position: relative;
+                                    color: var(--color-gray);
+                                    cursor: pointer;
+                                    transition: all .3s ease;
+
+                                    &::before {
+                                        content: "";
+                                        border: 2px solid var(--color-gray);
+                                        border-radius: .5rem;
+                                        position: absolute;
+                                        height: 1rem;
+                                        width: 1rem;
+                                        left: -2rem;
+                                        top: 0;
+                                        transition: all .3s ease;
+                                    }
+
+                                    &::after {
+                                        content: "✓";
+                                        position: absolute;
+                                        left: -1.7rem;
+                                        font-size: .8rem;
+                                        top: 3px;
+                                        font-weight: 900;
+                                        transition: all .4s ease;
+                                        color: var(--color-white);
+                                        opacity: 0;
+                                        transition: all .4s ease;
+                                        /* z-index: 2; */
+                                    }
+                                }
+                            }
+
+                            &:has(div#price-slider) {                                
+                                padding-top: 3rem;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         >section.products {
@@ -45,15 +181,17 @@ div#page {
                                 font-size: .85rem;
                                 font-weight: 700;
                                 top: 5px;
-                                left: 5px;                                
+                                left: 5px;
                                 color: #fff;
                                 padding: .15rem .5rem;
                                 border-radius: .3rem;
                             }
-                            > span.compra{
+
+                            >span.compra {
                                 background-color: var(--color-delivery-type);
                             }
-                            > span.venta{
+
+                            >span.venta {
                                 background-color: var(--color-green-blue);
                             }
 
@@ -158,9 +296,11 @@ div#page {
 .justify-center {
     justify-content: center;
 }
+
 .justify-start {
     justify-content: start;
 }
+
 /* From Uiverse.io by Sophiek9h */
 /* Design Inspired by one of Stefan Devai's Design on Dribble */
 
@@ -648,20 +788,137 @@ div#page {
 
 
 @media screen and (width >=768px) {
-    div.container {
-        >main.products-page {
-            display: flex;
+    div#page {
 
-            /* align-items: stretch; */
+        /* background-color: aqua; */
+        >main.products-page {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+
             >section.filter {
-                /* flex: 1; */
-                /* align-self: stretch; */
-                min-width: 250px;
-                /* align-items: stretch; */
+                position: sticky;
+                left: 0;
+                top: 140.4px;
+                align-self: start;
+
+                >div {
+                    >form.filter-by {
+                        /* background-color: yellowgreen; */
+                        gap: 2rem;
+
+                        >div {
+                            &:has(input[type="text"]) {
+                                /* display: flex; */
+                                display: flex;
+                                flex-direction: column;
+                                gap: 1rem;
+                            }
+
+                            &:has(input[type="submit"]) {
+                                >input[type="submit"] {
+                                    background-color: var(--color-green-blue);
+                                    border: 1px solid var(--color-green-blue);
+                                    color: var(--color-white);
+                                    font-weight: 500;
+                                    letter-spacing: .13rem;
+                                    transition: all .3s ease;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: var(--color-white);
+                                        color: var(--color-black-blue);
+                                    }
+                                }
+                            }
+
+                            >p {
+                                padding-bottom: 1rem;
+                            }
+
+                            >div {
+                                padding-top: .5rem;
+
+                                &:has(input[type="radio"]) {
+                                    display: flex;
+                                    gap: 1rem;
+
+                                    >input[type="radio"] {
+                                        opacity: 0;
+
+                                        &:hover {
+                                            +label {
+                                                color: var(--color-black-blue);
+
+                                                &::before {
+                                                    border-color: var(--color-black-blue);
+                                                }
+                                            }
+                                        }
+
+                                        &:checked {
+                                            +label {
+                                                color: var(--color-black-blue);
+
+                                                &::before {
+                                                    border-color: var(--color-black-blue);
+                                                    background-color: var(--color-black-blue);
+                                                }
+
+                                                &::after {
+                                                    opacity: 1;
+                                                }
+                                            }
+                                        }
+
+                                    }
+
+                                    >label {
+                                        /* background-color: indianred; */
+                                        position: relative;
+                                        color: var(--color-gray);
+                                        cursor: pointer;
+                                        transition: all .3s ease;
+
+                                        &::before {
+                                            content: "";
+                                            border: 2px solid var(--color-gray);
+                                            border-radius: .5rem;
+                                            position: absolute;
+                                            height: 1rem;
+                                            width: 1rem;
+                                            left: -2rem;
+                                            top: 0;
+                                            transition: all .3s ease;
+                                        }
+
+                                        &::after {
+                                            content: "✓";
+                                            position: absolute;
+                                            left: -1.7rem;
+                                            font-size: .8rem;
+                                            top: 3px;
+                                            font-weight: 900;
+                                            transition: all .4s ease;
+                                            color: var(--color-white);
+                                            opacity: 0;
+                                            transition: all .4s ease;
+                                            /* z-index: 2; */
+                                        }
+                                    }
+                                }
+
+                                &:has(div#price-slider) {
+                                    /* background-color: yellowgreen; */
+                                    padding-top: 2.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             >section.products {
-                flex: 1;
+                /* background-color: salmon; */
 
                 >ul.products-list {
                     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

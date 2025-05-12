@@ -13,7 +13,7 @@ export async function headerController() {
     // console.log($btnCloseMenuVertical);
     
     $btnCloseMenuVertical.addEventListener('click',()=>{
-        console.log('removiendo');        
+        // console.log('removiendo');        
         $containerMenuVertical.classList.add('hide-menu')
     })
     const $btnCategories = $containerMenu.querySelector('.show-categories')

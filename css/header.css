@@ -8,14 +8,18 @@ header.header-main {
     display: flex;
     flex-direction: column;
     gap: .25rem;
-
+    position: sticky;
+    top: 0;
+    left: 0;   
+    background-color: var(--color-white);
+    z-index: 999; 
     /* height: 60px; */
     /* background-color: yellowgreen; */
     >div.line-1 {
         display: flex;
         padding: .5rem 1.4rem;
         gap: 1rem;
-
+        font-family: inherit;
         >div.logo {
             /* background-color: blue; */
             display: flex;
@@ -38,18 +42,33 @@ header.header-main {
             /* background-color: yellowgreen; */
             flex: 1;
             display: flex;
+            align-items: center;
             padding: .3rem;
             position: relative;
 
             >input[type="text"] {
                 flex-grow: 1;
                 border-radius: 3rem;
-                padding: .7rem 1rem .7rem 3rem;
+                padding: .5rem 1rem .5rem 3rem;
                 outline: none;
                 border: 1px solid var(--color-gray);
-                font-size: 1.2rem;
+                font-size: 1.2rem;                
                 letter-spacing: .2px;
                 transition: all .3s ease;
+                &::placeholder {
+                    color: var(--color-gray);
+                }
+                &:focus{
+                    /* background-color: red; */
+                    padding-left: 1rem;
+                    outline: 1px solid var(--color-black);
+                    ~ div.ico-search {
+                        display: none;
+                    }
+                    ~ div.placeholder {
+                        display: none;
+                    }
+                }
 
                 &:hover {
                     border-color: var(--color-black);
@@ -59,14 +78,41 @@ header.header-main {
 
             >div.ico-search {
                 position: absolute;
-                top: 1.1rem;
+                top: .75rem;
                 left: 1.2rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 1.5rem;
                 color: var(--color-gray-light);
-                /* background-color: blue; */
+                pointer-events: none;                
+            }
+
+            >.placeholder {   
+                position: absolute;
+                top: 50%;
+                left: 3.5rem;
+                transform: translateY(-50%);  
+                display: flex;
+                gap: .4rem;  
+                pointer-events: none;            
+                /* background-color: yellowgreen;                              */
+                > span {
+                    font-family: inherit;
+                    font-size: 1.2rem;
+                    color: var(--color-gray);
+                    letter-spacing: .2px;
+                    &:not(.change){
+                        opacity: .5;
+                    }                    
+                }
+
+                >span.change {                    
+                    font-weight: 600;                    
+                    animation: fadeSequence 3s ease-in-out;
+                    /* opacity: 0; */                    
+                }
+
             }
         }
 
@@ -79,6 +125,7 @@ header.header-main {
         border-top: 1px solid var(--color-gray-dark);
         margin-bottom: .15rem;
         padding-left: 1.4rem;
+
         /* background-color: aqua; */
         >ul.menu-horizontal {
             display: flex;
@@ -94,8 +141,9 @@ header.header-main {
                 transition: all .3s ease-in-out;
                 border-bottom: 3px solid var(--color-white);
                 border-top: 3px solid var(--color-white);
-                &:has(button){
-                    > button {
+
+                &:has(button) {
+                    >button {
                         display: flex;
                         align-items: center;
                         gap: .5rem;
@@ -103,6 +151,7 @@ header.header-main {
                         background-color: transparent;
                         cursor: pointer;
                         transition: all .3s ease;
+
                         >div.ico-burger {
                             /* background-color: yellow; */
                             display: flex;
@@ -110,10 +159,11 @@ header.header-main {
                             align-items: center;
                             font-size: 1.5rem;
                         }
-                        &:hover{
+
+                        &:hover {
                             opacity: .5;
-                        }                   
-                    } 
+                        }
+                    }
                 }
 
                 &:hover {
@@ -223,10 +273,34 @@ header.header-main {
     }
 }
 
-.hide-menu{
+.hide-menu {
     display: none;
 }
 
+
+@keyframes fadeOut {
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSequence {
+  0% { opacity: 0; }  /* Inicio: oculto */
+  50% { opacity: 1; } /* Mitad: visible */
+  100% { opacity: 0; } /* Final: oculto otra vez */
+}
 
 @media screen and (width >=768px) {
     header.header-main {
@@ -238,13 +312,13 @@ header.header-main {
             }
 
             >div.logo-desktop {
-                display: block;                
+                display: block;
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
-                > a {
-                    >img {                    
+                >a {
+                    >img {
                         /* padding-top: .15rem; */
                         width: 100%;
                         object-fit: contain;
@@ -278,8 +352,9 @@ header.header-main {
                         background-color: var(--color-cyan);
                     }
                 }
-                > div.to-profile {
-                    > a {
+
+                >div.to-profile {
+                    >a {
                         display: inline-block;
                         padding: .5rem 5rem;
                         color: var(--color-white);
@@ -289,18 +364,21 @@ header.header-main {
                         transition: all .3s ease;
                         display: flex;
                         gap: .5rem;
-                        > div {
+
+                        >div {
                             display: flex;
                             justify-content: center;
                             align-items: center;
                         }
-                        &:hover{
+
+                        &:hover {
                             opacity: .8;
                         }
                     }
                 }
-                > div.logout-desktop{
-                    > button {
+
+                >div.logout-desktop {
+                    >button {
                         display: inline-block;
                         padding: .5rem 2rem;
                         color: var(--color-black-blue);
@@ -311,22 +389,26 @@ header.header-main {
                         background-color: transparent;
                         cursor: pointer;
                         transition: all .3s ease;
-                        > div {
+
+                        >div {
                             display: flex;
                             justify-content: center;
                             align-items: center;
                         }
-                        &:hover{
+
+                        &:hover {
                             opacity: .7;
                         }
                     }
                 }
             }
         }
+
         >div.line-2 {
             padding-left: 2rem;
         }
-        >div.menu-vertical {            
+
+        >div.menu-vertical {
             left: 0;
             top: 9rem;
         }

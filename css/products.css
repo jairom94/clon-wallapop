@@ -919,7 +919,8 @@ div#page {
 
             >section.products {
                 /* background-color: salmon; */
-
+                max-width: none;
+                margin: 0;
                 >ul.products-list {
                     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 }

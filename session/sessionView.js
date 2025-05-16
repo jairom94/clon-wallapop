@@ -16,7 +16,13 @@ export function sessionView($navigationMobile) {
     const containerVender = document.createElement('div')
     const $vender = document.createElement('a')
     $vender.classList.add('btn-sell')
-    $vender.textContent = 'Vender'
+    // $vender.textContent = 'Vender'
+    $vender.innerHTML = `
+    <div class="ico-plus icon-container">
+        <iconify-icon icon="formkit:add"></iconify-icon>
+    </div>
+    <span>Vender<span>
+    `
     $vender.href = '/profile.html'
     containerVender.appendChild($vender)
 

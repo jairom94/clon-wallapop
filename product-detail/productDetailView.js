@@ -26,7 +26,7 @@ export function loaderProductDetail() {
     `
 }
 
-export function productDetail({title,description,images,price,type,category}) {
+export function productDetail({title,description,images,price,type,category,user}) {
     const defaultImage = './imgs/products/placeholder_image.png';
     const cleanImage = images.map(img => fromBase64toImage(img.datos_base64, img.formato))
     return `
@@ -38,7 +38,7 @@ export function productDetail({title,description,images,price,type,category}) {
                                 </figure>
                                 <div class="rating">
                                     <div>
-                                        <span>Miguel O.</span>
+                                        <span>${user.name}</span>
                                     </div>
                                     <div>
                                         <div class="ico star">

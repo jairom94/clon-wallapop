@@ -338,6 +338,10 @@ header.header-main {
                         display: inline-block;
                         padding: .5rem 2rem;
                         color: var(--color-black-blue);
+                        transition: all .3s ease;
+                        &:hover {
+                            opacity: .8;
+                        }
                     }
 
                     >a.btn-login {
@@ -350,6 +354,10 @@ header.header-main {
                         border: 2px solid var(--color-cyan);
                         border-radius: 1rem;
                         background-color: var(--color-cyan);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: .5rem;
                     }
                 }
 

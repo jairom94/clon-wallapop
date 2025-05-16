@@ -21,6 +21,8 @@ export async function productDetailController(productID) {
             }
         });
         $productDetail.dispatchEvent(event);
+        console.log(product);
+        
         $productDetail.innerHTML = productDetail(product);        
         
     } catch (error) {

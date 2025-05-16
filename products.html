@@ -1,244 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Asap:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Asap:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Icons -->
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="./notification/notifications.css">
-    <link rel="stylesheet" href="./loader/loader.css">
-    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="./notification/notifications.css" />
+    <link rel="stylesheet" href="./loader/loader.css" />
+    <link rel="stylesheet" href="css/products.css" />
 
     <!-- CDN noUiSlider -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css"
+    />
 
     <title>Products</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <ul class="notification-container"></ul>
     <dialog class="cont-loader"></dialog>
     <div class="container" id="page">
-        <header class="header-main">
-            <div class="line-1">
-                <div class="logo">
-                    <img src="./imgs/logo.svg" alt="logo wallapop">
-                </div>
-                <div class="logo-desktop">
-                    <a href="/">
-                        <img src="./imgs/logo-desktop.svg" alt="logo wallapop">
-                    </a>
-                </div>
-                <div class="frm-search">
-                    <input class="txt_search" type="text" name="search" id="search" placeholder="Busca vinilos">
-                    <div class="ico-search">
-                        <iconify-icon icon="octicon:search-16"></iconify-icon>
-                    </div>
-                    <div class="placeholder">
-
-                    </div>
-                </div>
-                <div class="session-desktop">
-                    <!-- <div>
+      <header class="header-main">
+        <div class="line-1">
+          <div class="logo">
+            <img src="./imgs/logo.svg" alt="logo wallapop" />
+          </div>
+          <div class="logo-desktop">
+            <a href="/">
+              <img src="./imgs/logo-desktop.svg" alt="logo wallapop" />
+            </a>
+          </div>
+          <div class="frm-search">
+            <input class="txt_search" type="text" name="search" id="search" />
+            <div class="ico-search">
+              <iconify-icon icon="octicon:search-16"></iconify-icon>
+            </div>
+            <div class="placeholder">
+              <span>Busca</span>
+            </div>
+          </div>
+          <div class="session-desktop">
+            <!-- <div>
                         <a class="btn-login" href="#">Regístrate o inicia sesión</a>
                     </div>
                     <div>
                         <a class="btn-sell" href="#">Vender</a>
                     </div> -->
-                </div>
-            </div>
-            <div class="line-2">
-            </div>
-            <div class="menu-vertical">
-            </div>
-        </header>
-        <main class="page products-page">
-            <section class="filter">
+          </div>
+        </div>
+        <div class="line-2"></div>
+        <div class="menu-vertical"></div>
+      </header>
+      <main class="page products-page">
+        <section class="filter">
+          <div>
+            <form class="filter-by">
+              <div>
+                <label for="search">Titulo</label>
+                <input type="text" name="search" id="search" />
+              </div>
+              <div>
+                <p>Tipo de publicación</p>
                 <div>
-                    <form class="filter-by">
-                        <div>
-                            <label for="search">Titulo</label>
-                            <input type="text" name="search" id="search">
-                        </div>
-                        <div>
-                            <p>Tipo de publicación</p>
-                            <div>
-                                <input type="radio" name="type" id="buy">
-                                <label for="buy">Compra</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="type" id="sell">
-                                <label for="sell">Venta</label>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Rango de precio</p>
-                            <div>
-                                <div id="price-slider"></div>
-                                <input type="hidden" id="price-min" name="min" value="0">
-                                <input type="hidden" id="price-max" name="max" value="1000">
-                            </div>
-                        </div>
-                        <div>
-                            <input type="submit" value="Filtrar">
-                        </div>
-                    </form>
+                  <input type="radio" name="type" id="buy" />
+                  <label for="buy">Compra</label>
                 </div>
-            </section>
-            <section class="products">
-                <ul class="products-list">
-                    <li class="loading"></li>
-                    <li class="loading"></li>
-                    <li class="loading"></li>
-                    <li class="loading"></li>
-                </ul>
-            </section>
-        </main>
-        <footer class="footer-main">
-            <div>
-                <section class="rights">
-                    <figure>
-                        <img src="./imgs/logo-desktop.svg" alt="logo wallapop">
-                    </figure>
-                    <p>
-                        © 2013-2025 Wallapop. Todos los derechos reservados
-                    </p>
-                </section>
-                <section class="information nav">
-                    <h3>Wallapop</h3>
-                    <ul>
-                        <li><a href="#">Quiénes somos</a></li>
-                        <li><a href="#">Como funciona</a></li>
-                        <li><a href="#">Brand Book</a></li>
-                        <li><a href="#">Prensa</a></li>
-                        <li><a href="#">Empleo</a></li>
-                        <li><a href="#">Sostenibilidad</a></li>
-                    </ul>
-                </section>
-                <section class="support nav">
-                    <h3>Soporte</h3>
-                    <ul>
-                        <li><a href="#">Centro de ayuda</a></li>
-                        <li><a href="#">Normas de la comunidad</a></li>
-                        <li><a href="#">Consejos de seguridad</a></li>
-                    </ul>
-                </section>
-                <section class="social">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <div class="social-icon">
-                                    <iconify-icon icon="ri:facebook-fill"></iconify-icon>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="social-icon">
-                                    <iconify-icon icon="mdi:twitter"></iconify-icon>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="social-icon">
-                                    <iconify-icon icon="mdi:instagram"></iconify-icon>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-        </footer>
+                <div>
+                  <input type="radio" name="type" id="sell" />
+                  <label for="sell">Venta</label>
+                </div>
+              </div>
+              <div>
+                <p>Rango de precio</p>
+                <div>
+                  <div id="price-slider"></div>
+                  <input type="hidden" id="price-min" name="min" value="0" />
+                  <input type="hidden" id="price-max" name="max" value="1000" />
+                </div>
+              </div>
+              <div>
+                <input type="submit" value="Filtrar" />
+              </div>
+            </form>
+          </div>
+        </section>
+        <section class="products">
+          <ul class="products-list">
+            <li class="loading"></li>
+            <li class="loading"></li>
+            <li class="loading"></li>
+            <li class="loading"></li>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer-main">
+        <div>
+          <section class="rights">
+            <figure>
+              <img src="./imgs/logo-desktop.svg" alt="logo wallapop" />
+            </figure>
+            <p>© 2013-2025 Wallapop. Todos los derechos reservados</p>
+          </section>
+          <section class="information nav">
+            <h3>Wallapop</h3>
+            <ul>
+              <li><a href="#">Quiénes somos</a></li>
+              <li><a href="#">Como funciona</a></li>
+              <li><a href="#">Brand Book</a></li>
+              <li><a href="#">Prensa</a></li>
+              <li><a href="#">Empleo</a></li>
+              <li><a href="#">Sostenibilidad</a></li>
+            </ul>
+          </section>
+          <section class="support nav">
+            <h3>Soporte</h3>
+            <ul>
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Normas de la comunidad</a></li>
+              <li><a href="#">Consejos de seguridad</a></li>
+            </ul>
+          </section>
+          <section class="social">
+            <ul>
+              <li>
+                <a href="#">
+                  <div class="social-icon">
+                    <iconify-icon icon="ri:facebook-fill"></iconify-icon>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="social-icon">
+                    <iconify-icon icon="mdi:twitter"></iconify-icon>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="social-icon">
+                    <iconify-icon icon="mdi:instagram"></iconify-icon>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </footer>
     </div>
     <nav class="bottom-navigation">
-        <ul class="session-navigation-mobile">
-            <li>
-                <a href="./products.html">
-                    <div class="icon-cont">
-                        <iconify-icon icon="solar:shop-linear"></iconify-icon>
-                    </div>
-                    <span>Inicio</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon-cont">
-                        <iconify-icon icon="mdi:heart-outline"></iconify-icon>
-                    </div>
-                    <span>Favoritos</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon-cont">
-                        <iconify-icon icon="fluent-mdl2:add-to"></iconify-icon>
-                    </div>
-                    <span>Súbelo</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="icon-cont">
-                        <iconify-icon icon="ooui:message"></iconify-icon>
-                    </div>
-                    <span>Buzón</span>
-                </a>
-            </li>
-        </ul>
+      <ul class="session-navigation-mobile">
+        <li>
+          <a href="./products.html">
+            <div class="icon-cont">
+              <iconify-icon icon="solar:shop-linear"></iconify-icon>
+            </div>
+            <span>Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="icon-cont">
+              <iconify-icon icon="mdi:heart-outline"></iconify-icon>
+            </div>
+            <span>Favoritos</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="icon-cont">
+              <iconify-icon icon="fluent-mdl2:add-to"></iconify-icon>
+            </div>
+            <span>Súbelo</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="icon-cont">
+              <iconify-icon icon="ooui:message"></iconify-icon>
+            </div>
+            <span>Buzón</span>
+          </a>
+        </li>
+      </ul>
     </nav>
     <!-- CDN JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const slider = document.getElementById('price-slider');
-            var formatForSlider = {
-                from: function (formattedValue) {
-                    return Number(formattedValue);
-                },
-                to: function (numericValue) {
-                    return Math.round(numericValue);
-                }
-            };
-            noUiSlider.create(slider, {
-                start: [100, 500],       // Valores iniciales [min, max]
-                connect: true,           // Barra conectada entre los handles
-                range: {
-                    'min': 0,
-                    'max': 1000
-                },
-                format: formatForSlider,
-                tooltips: {
-                    // tooltips are output only, so only a "to" is needed
-                    to: function (numericValue) {
-                        return numericValue.toFixed(1);
-                    }
-                },
-                step: 10,// Incrementos de 10 en 10                
-            });
+      document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.getElementById("price-slider");
+        var formatForSlider = {
+          from: function (formattedValue) {
+            return Number(formattedValue);
+          },
+          to: function (numericValue) {
+            return Math.round(numericValue);
+          },
+        };
+        noUiSlider.create(slider, {
+          start: [100, 500], // Valores iniciales [min, max]
+          connect: true, // Barra conectada entre los handles
+          range: {
+            min: 0,
+            max: 1000,
+          },
+          format: formatForSlider,
+          tooltips: {
+            // tooltips are output only, so only a "to" is needed
+            to: function (numericValue) {
+              return numericValue.toFixed(1);
+            },
+          },
+          step: 10, // Incrementos de 10 en 10
+        });
 
-            // Actualizar valores en pantalla
-            slider.noUiSlider.on('update', function (values) {
-                document.getElementById('price-min').value = Math.round(values[0]);
-                document.getElementById('price-max').value = Math.round(values[1]);
-            });
-        })
+        // Actualizar valores en pantalla
+        slider.noUiSlider.on("update", function (values) {
+          document.getElementById("price-min").value = Math.round(values[0]);
+          document.getElementById("price-max").value = Math.round(values[1]);
+        });
+      });
     </script>
     <script type="module" src="./header.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const placeholder = document.querySelector(".placeholder");
+        const first = placeholder.firstElementChild;
+        const categories = [
+          "relojes",
+          "Iphone",
+          "paddle",
+          "Nintendo",
+          "télefonos",
+          "cocina",
+          "baño",
+          "electrodmésticos",
+          "mecánica",
+        ];
+        let index = 0;
+        function animate() {
+          const spanChange = document.createElement("span");
+          spanChange.classList.add("change");
+          first.insertAdjacentElement("afterend", spanChange);
+          spanChange.textContent = categories[index];
+          setTimeout(() => {
+            if (index < categories.length - 1) {
+              index++;
+            } else {
+              index = 0;
+            }
+            spanChange.remove();
+            animate();
+          }, 3000);
+        }
+        animate();
+      });
+    </script>
     <script type="module" src="./session.js"></script>
     <script type="module" src="./products.js"></script>
-</body>
-
+  </body>
 </html>
